@@ -16,7 +16,7 @@ const config: Config = {
       gray: {
         dark: '#1c1c1e',
         light: '#f2f2f7',
-      }
+      },
     },
   },
   plugins: [],

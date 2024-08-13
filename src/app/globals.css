@@ -3,28 +3,18 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --gradient: linear-gradient(to right, #40e0d0, #ff8c00, #ff0080);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
-.joy_gradient {
-  background: linear-gradient(to right, #40e0d0, #ff8c00, #ff0080);
+.gradient {
+  background: var(--gradient);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   position: relative;
 }
 
-.joy_gradient.underline::after {
+.gradient--underline::after {
   content: "";
   position: absolute;
   left: 0;
@@ -34,8 +24,20 @@
   background: linear-gradient(to right, #40e0d0, #ff8c00, #ff0080);
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.gradient--border:hover {
+  border: solid 1px transparent;
+  background-image: linear-gradient(
+      theme("colors.gray.dark"),
+      theme("colors.gray.dark")
+    ),
+    var(--gradient);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+}
+
+.gradient--border:active {
+  border: solid 1px theme("colors.gray.light");
+  color: theme("colors.gray.dark");
+  background-color: theme("colors.gray.light");
+  background-image: none;
 }
