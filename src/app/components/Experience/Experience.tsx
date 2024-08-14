@@ -1,29 +1,16 @@
 "use client";
+
 // Next
 import Image from "next/image";
 import Link from "next/link";
 
-// React
-import { ReactEventHandler, SyntheticEvent, useEffect, useState } from "react";
-
 // Icons
 import ExternalLink from "../../assets/ExternalLink.svg";
+import { ExperienceProperties } from "./experience.types";
 
-export type ExperienceModuleProperties = {
-  title: string;
-  company: string;
-  companyURL: string;
-  color: string;
-  from: Date;
-  to?: Date;
-  projects: ProjectProperties[];
-};
-
-type ProjectProperties = {
-  name: string;
-  description: string;
-  url: string;
-};
+// Utils
+import { TailwindTextColor } from "@/app/styles/theme";
+import { useState } from "react";
 
 const formatDate = (date: Date | undefined) => {
   if (!date) {
@@ -38,33 +25,27 @@ const formatDate = (date: Date | undefined) => {
   return `${month} ${year}`;
 };
 
-/*TODO: 
-- add title color change when hovering the component
-*/
-const ExperienceModule = (props: ExperienceModuleProperties) => {
+const ExperienceModule = (props: ExperienceProperties) => {
   const [titleColor, setTitleColor] = useState("");
 
   const handleMouseEnter = () => {
-    // setTitleColor(getHoverClass(props.color));
+    setTitleColor(TailwindTextColor[props.color]);
   };
 
   const handleMouseLeave = () => {
-    //setTitleColor(getHoverClass(""));
-  };
-
-  const colorVariant: any = {
-    red: "hover:text-red",
-    green: "hover:text-green",
-    purple: "hover:text-purple",
+    setTitleColor("");
   };
 
   return (
-    <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-      <h3
-        className={`mb-2 text-2xl font-extrabold ${colorVariant[props.color]}`}
-      >
+    <div
+      className="max-w-fit"
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
+      <h3 className={`mb-2 text-2xl font-extrabold ${titleColor}`}>
         {props.title}
       </h3>
+
       <p className="mb-4">
         <Link className="me-1" href={props.companyURL} target="_blank">
           <span className="underline">{props.company}</span>
@@ -74,10 +55,10 @@ const ExperienceModule = (props: ExperienceModuleProperties) => {
       </p>
 
       <div className="flex flex-col gap-y-4">
-        {props.projects.map((project) => (
-          <div className="max-w-sm" key={project.name}>
-            <>
-              {project.name ?? (
+        {props.projects &&
+          props.projects.map((project) => (
+            <div className="max-w-sm" key={project.url}>
+              {project.name && (
                 <Link href={project.url} className="flex">
                   <h4 className="text-xl font-extrabold">{project.name}</h4>
                   <Image
@@ -88,9 +69,8 @@ const ExperienceModule = (props: ExperienceModuleProperties) => {
                 </Link>
               )}
               <p className="leading-7">{project.description}</p>
-            </>
-          </div>
-        ))}
+            </div>
+          ))}
       </div>
     </div>
   );

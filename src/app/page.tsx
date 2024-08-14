@@ -9,13 +9,13 @@ import FigmaLogo from "./assets/Figma.svg";
 
 // Components
 import Button from "./components/Button/Button";
-import ExperienceModule from "./components/ExperienceModule/ExperienceModule";
+import ExperienceModule from "./components/Experience/Experience";
 
 import { DummyData } from "./db/dummy";
 
 export default function Home() {
   return (
-    <div className="min-h-fit xl:min-h-screen px-4 py-4 md:px-10 md:py-12 xl:px-36 xl:py-36 grid grid-col-2 grid-rows-2">
+    <div className="min-h-fit xl:min-h-screen px-4 py-4 md:px-10 md:py-12 xl:px-36 xl:py-36 grid xl:grid-cols-2 xl:grid-rows-2 gap-y-10 xl:gap-y-0">
       <header style={{ border: "1px solid blue" }}>
         <h1 className="mb-6 text-4xl lg:text-6xl font-extrabold leading-none">
           Jose
@@ -48,7 +48,7 @@ export default function Home() {
       </main>
 
       <footer className="content-end" style={{ border: "1px solid green" }}>
-        <div className="max-w-28 mb-12 flex justify-between align-items-center">
+        <div className="mb-12 flex gap-x-4">
           <Link
             href="https://www.linkedin.com/in/sanclemente-jose/"
             target="_blank"
