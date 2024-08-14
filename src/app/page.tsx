@@ -9,6 +9,9 @@ import FigmaLogo from "./assets/Figma.svg";
 
 // Components
 import Button from "./components/Button/Button";
+import ExperienceModule from "./components/ExperienceModule/ExperienceModule";
+
+import { DummyData } from "./db/dummy";
 
 export default function Home() {
   return (
@@ -36,7 +39,12 @@ export default function Home() {
           <Button text="Experience"></Button>
           <Button text="About" borderGradient></Button>
         </nav>
-        Render
+
+        <div className="flex flex-col gap-y-10">
+          {DummyData.map((data) => (
+            <ExperienceModule key={data.company} {...data}></ExperienceModule>
+          ))}
+        </div>
       </main>
 
       <footer className="content-end" style={{ border: "1px solid green" }}>

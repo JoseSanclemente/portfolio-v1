@@ -12,7 +12,7 @@ const config: Config = {
       current: 'currentColor',
       red: '#e61717',
       green: '#bfd732',
-      purple: '#77a9ff',
+      purple: '#7749ff',
       gray: {
         dark: '#1c1c1e',
         light: '#f2f2f7',

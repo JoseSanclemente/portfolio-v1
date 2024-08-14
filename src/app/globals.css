@@ -4,6 +4,11 @@
 
 :root {
   --gradient: linear-gradient(to right, #40e0d0, #ff8c00, #ff0080);
+  --red: #e61717;
+  --green: #bfd732;
+  --purple: #7749ff;
+  --gray-dark: #1c1c1e;
+  --gray-light: #f2f2f7;
 }
 
 .gradient {
