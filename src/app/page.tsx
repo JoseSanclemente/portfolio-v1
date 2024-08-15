@@ -15,8 +15,8 @@ import { DummyData } from "./db/dummy";
 
 export default function Home() {
   return (
-    <div className="min-h-fit xl:min-h-screen px-4 py-4 md:px-10 md:py-12 xl:px-36 xl:py-36 grid xl:grid-cols-2 xl:grid-rows-2 gap-y-10 xl:gap-y-0">
-      <header style={{ border: "1px solid blue" }}>
+    <div className="mx-auto min-h-fit xl:min-h-screen w-full sm:w-2/3 grid md:gap-x-20 xl:gap-x-44 py-20 xl:py-36 px-4 xl:px-0 xl:grid-cols-2 xl:grid-rows-2 gap-y-10 xl:gap-y-0">
+      <header className="">
         <h1 className="mb-6 text-4xl lg:text-6xl font-extrabold leading-none">
           Jose
           <br />
@@ -31,24 +31,21 @@ export default function Home() {
         </p>
       </header>
 
-      <main
-        className="lg:col-start-2 lg:row-start-1 lg:row-end-3"
-        style={{ border: "1px solid red" }}
-      >
-        <nav className="flex flex-row justify-between gap-x-4 max-w-fit mt-8 lg:mt-0 mb-12">
+      <main className="lg:col-start-2 lg:row-start-1 lg:row-end-3">
+        <nav className="flex flex-row justify-between gap-x-4 max-w-fit mt-4 lg:mt-0 mb-12">
           <Button text="Experience"></Button>
           <Button text="About" borderGradient></Button>
         </nav>
 
-        <div className="flex flex-col gap-y-10">
+        <div className="flex flex-col gap-y-10 border-l">
           {DummyData.map((data) => (
             <ExperienceModule key={data.company} {...data}></ExperienceModule>
           ))}
         </div>
       </main>
 
-      <footer className="content-end" style={{ border: "1px solid green" }}>
-        <div className="mb-12 flex gap-x-4">
+      <footer className="mt-8 xl:mt-0 content-end md:place-self-start">
+        <div className="mb-12 flex gap-x-4 justify-around sm:justify-start">
           <Link
             href="https://www.linkedin.com/in/sanclemente-jose/"
             target="_blank"
@@ -65,12 +62,15 @@ export default function Home() {
             <Image src={FigmaLogo} alt="Figma logo" />
           </Link>
         </div>
-        © 2024 - Jose Sanclemente - Made with{" "}
-        <span className="font-bold underline gradient gradient--underline">
-          <Link href="https://nextjs.org/" target="_blank">
-            Next.js
-          </Link>
-        </span>
+        <p className="text-center sm:text-start">
+          {" "}
+          © 2024 - Jose Sanclemente - Made with{" "}
+          <span className="font-bold underline gradient gradient--underline">
+            <Link href="https://nextjs.org/" target="_blank">
+              Next.js
+            </Link>
+          </span>
+        </p>
       </footer>
     </div>
   );

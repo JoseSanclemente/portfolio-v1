@@ -1,12 +1,22 @@
-type ButtonProperties = {
-  text: string;
-  borderGradient?: boolean;
-};
+"use client";
+// React
+import { useEffect, useState } from "react";
+
+// Styles
+import {
+  GradientBorderClass,
+  TailwindHoverBorderColor,
+  TailwindThemeColors,
+} from "@/app/styles/theme";
 
 const Button = (props: ButtonProperties) => {
-  const borderClass = props.borderGradient
-    ? "gradient--border"
-    : "hover:border-gray-light";
+  const [borderClass, setBorderClass] = useState("");
+
+  useEffect(() => {
+    props.borderGradient
+      ? setBorderClass(GradientBorderClass)
+      : setBorderClass(TailwindHoverBorderColor[TailwindThemeColors.GrayLight]);
+  });
 
   return (
     <div

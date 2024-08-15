@@ -12,6 +12,8 @@ import { ExperienceProperties } from "./experience.types";
 import { TailwindTextColor } from "@/app/styles/theme";
 import { useState } from "react";
 
+import styles from "./experience.module.css";
+
 const formatDate = (date: Date | undefined) => {
   if (!date) {
     return "Present";
@@ -38,7 +40,7 @@ const ExperienceModule = (props: ExperienceProperties) => {
 
   return (
     <div
-      className="max-w-fit"
+      className={`max-w-fit pl-6 ${styles.timelineEvent}`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >

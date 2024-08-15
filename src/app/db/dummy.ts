@@ -1,12 +1,12 @@
 import { ExperienceProperties } from "../components/Experience/experience.types";
-import { TailWindThemeColors } from "../styles/theme";
+import { TailwindThemeColors } from "../styles/theme";
 
 export const DummyData: ExperienceProperties[] = [
   {
     title: "Senior Frontend Analyst",
     company: "Perficient",
     companyURL: "https://www.perficient.com/",
-    color: TailWindThemeColors.Red,
+    color: TailwindThemeColors.Red,
     from: new Date(2022, 8),
     projects: [
       {
@@ -27,7 +27,7 @@ export const DummyData: ExperienceProperties[] = [
     title: "Web UI Developer",
     company: "Globant",
     companyURL: "https://www.globant.com/",
-    color: TailWindThemeColors.Green,
+    color: TailwindThemeColors.Green,
     from: new Date(2021, 5),
     to: new Date(2022, 8),
     projects: [
@@ -43,7 +43,7 @@ export const DummyData: ExperienceProperties[] = [
     title: "Founding Engineer",
     company: "Truora",
     companyURL: "https://www.truora.com/en/",
-    color: TailWindThemeColors.Purple,
+    color: TailwindThemeColors.Purple,
     from: new Date(2018, 6),
     to: new Date(2021, 5),
     projects: [
