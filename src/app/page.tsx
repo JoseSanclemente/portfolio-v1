@@ -3,15 +3,14 @@ import Image from "next/image";
 import Link from "next/link";
 
 // Icons
-import LinkedInLogo from "./assets/LinkedIn.svg";
-import InstagramLogo from "./assets/Instagram.svg";
-import FigmaLogo from "./assets/Figma.svg";
+import LinkedInLogo from "../../public/LinkedIn.svg";
+import InstagramLogo from "../../public/Instagram.svg";
+import FigmaLogo from "../../public/Figma.svg";
 
 // Components
-import Button from "./components/Button/Button";
-import ExperienceModule from "./components/Experience/Experience";
+import Tabs from "./components/Tabs/Tabs";
 
-import { DummyData } from "./db/dummy";
+import { Database } from "./db/dummy";
 
 export default function Home() {
   return (
@@ -32,16 +31,7 @@ export default function Home() {
       </header>
 
       <main className="lg:col-start-2 lg:row-start-1 lg:row-end-3">
-        <nav className="flex flex-row justify-between gap-x-4 max-w-fit mt-4 lg:mt-0 mb-12">
-          <Button text="Experience"></Button>
-          <Button text="About" borderGradient></Button>
-        </nav>
-
-        <div className="flex flex-col gap-y-10 border-l">
-          {DummyData.map((data) => (
-            <ExperienceModule key={data.company} {...data}></ExperienceModule>
-          ))}
-        </div>
+        <Tabs tabEntries={Database}></Tabs>
       </main>
 
       <footer className="mt-8 xl:mt-0 content-end md:place-self-start">
@@ -65,7 +55,7 @@ export default function Home() {
         <p className="text-center sm:text-start">
           {" "}
           © 2024 - Jose Sanclemente - Made with{" "}
-          <span className="font-bold underline gradient gradient--underline">
+          <span className="font-bold gradient">
             <Link href="https://nextjs.org/" target="_blank">
               Next.js
             </Link>

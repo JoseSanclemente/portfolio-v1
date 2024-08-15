@@ -4,11 +4,18 @@
 
 :root {
   --gradient: linear-gradient(to right, #40e0d0, #ff8c00, #ff0080);
+  --timelineGradient: linear-gradient(
+    0deg,
+    var(--grayDark),
+    var(--grayLight),
+    96%,
+    var(--grayDark) 90%
+  );
   --red: #e61717;
   --green: #bfd732;
   --purple: #7749ff;
-  --gray-dark: #1c1c1e;
-  --gray-light: #f2f2f7;
+  --grayDark: #1c1c1e;
+  --grayLight: #f2f2f7;
 }
 
 .gradient {
@@ -31,15 +38,43 @@
 
 .gradient--border:hover {
   border: solid 1px transparent;
-  background-image: linear-gradient(var(--gray-dark), var(--gray-dark)),
+  background-image: linear-gradient(var(--grayDark), var(--grayDark)),
     var(--gradient);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  color: var(--grayLight);
+}
+
+.gradient--border:active,
+.active,
+.active:hover {
+  border: solid 1px var(--grayLight);
+  color: var(--grayDark);
+  background-color: var(--grayLight);
+  background-image: none;
+}
+
+.timeline {
+  background-image: linear-gradient(var(--grayDark), var(--grayDark)),
+    var(--timelineGradient);
+  border-left: solid 1px transparent;
   background-origin: border-box;
   background-clip: padding-box, border-box;
 }
 
-.gradient--border:active {
-  border: solid 1px var(--gray-light);
-  color: var(--gray-dark);
-  background-color: var(--gray-light);
-  background-image: none;
+.timeline-event::before {
+  position: relative;
+  display: inline-block;
+  left: -2rem;
+  top: 1.8rem;
+  content: "";
+  width: 15px;
+  height: 15px;
+  background-color: var(--grayDark);
+  border: 1px solid var(--grayLight);
+  border-radius: 50%;
+}
+
+.timeline-event:first-child::before {
+  background-color: var(--grayLight);
 }

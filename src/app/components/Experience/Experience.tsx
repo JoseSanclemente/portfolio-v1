@@ -4,15 +4,15 @@
 import Image from "next/image";
 import Link from "next/link";
 
+//React
+import { useState } from "react";
+
 // Icons
-import ExternalLink from "../../assets/ExternalLink.svg";
-import { ExperienceProperties } from "./experience.types";
+import ExternalLink from "../../../../public/ExternalLink.svg";
 
 // Utils
 import { TailwindTextColor } from "@/app/styles/theme";
-import { useState } from "react";
-
-import styles from "./experience.module.css";
+import { ExperienceProperties } from "./experience.types";
 
 const formatDate = (date: Date | undefined) => {
   if (!date) {
@@ -27,7 +27,7 @@ const formatDate = (date: Date | undefined) => {
   return `${month} ${year}`;
 };
 
-const ExperienceModule = (props: ExperienceProperties) => {
+const Experience = (props: ExperienceProperties) => {
   const [titleColor, setTitleColor] = useState("");
 
   const handleMouseEnter = () => {
@@ -40,7 +40,7 @@ const ExperienceModule = (props: ExperienceProperties) => {
 
   return (
     <div
-      className={`max-w-fit pl-6 ${styles.timelineEvent}`}
+      className={`max-w-fit pl-6 timeline-event`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
@@ -78,4 +78,4 @@ const ExperienceModule = (props: ExperienceProperties) => {
   );
 };
 
-export default ExperienceModule;
+export default Experience;

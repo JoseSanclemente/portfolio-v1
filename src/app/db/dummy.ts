@@ -1,7 +1,25 @@
 import { ExperienceProperties } from "../components/Experience/experience.types";
 import { TailwindThemeColors } from "../styles/theme";
 
-export const DummyData: ExperienceProperties[] = [
+export enum Datatype {
+  Experience = "experience",
+  About = "about",
+}
+
+type ContentType = ExperienceProperties[] | string;
+
+export type DatabaseEntry = {
+  name: string;
+  type: Datatype;
+  content: ContentType;
+};
+
+export type DataContentType = {
+  [Datatype.Experience]: ExperienceProperties[];
+  [Datatype.About]: string;
+};
+
+export const DummyExperience: ExperienceProperties[] = [
   {
     title: "Senior Frontend Analyst",
     company: "Perficient",
@@ -55,4 +73,19 @@ export const DummyData: ExperienceProperties[] = [
       },
     ],
   },
+];
+
+// This is just for testing
+const DataContent: DataContentType = {
+  [Datatype.Experience]: DummyExperience,
+  [Datatype.About]: "",
+};
+
+export const Database: DatabaseEntry[] = [
+  {
+    name: "Experience",
+    type: Datatype.Experience,
+    content: DataContent[Datatype.Experience],
+  },
+  { name: "About", type: Datatype.About, content: DataContent[Datatype.About] },
 ];
