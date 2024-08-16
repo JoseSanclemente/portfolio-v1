@@ -21,7 +21,7 @@ const Button = ({
     borderGradient
       ? setBorderClass(GradientBorderClass)
       : setBorderClass(TailwindHoverBorderColor[TailwindThemeColors.GrayLight]);
-  });
+  }, []);
 
   return (
     <div

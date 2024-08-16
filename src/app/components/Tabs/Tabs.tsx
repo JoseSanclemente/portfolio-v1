@@ -14,15 +14,22 @@ type TabsProperties = {
   tabEntries: DatabaseEntry[];
 };
 
+const HIGHLIGHTED_TAB = "About";
+
 const Tabs = ({ tabEntries }: TabsProperties) => {
   const [activeTab, setActiveTab] = useState(0);
 
+  const handleOnClick = (tabIndex: number) => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    setActiveTab(tabIndex);
+  };
+
   const renderContent = (dataEntry: DatabaseEntry) => {
-    if (!dataEntry?.type) {
+    const dataType = dataEntry.type;
+
+    if (!dataType) {
       return <></>;
     }
-
-    const dataType = dataEntry.type;
 
     if (dataType === Datatype.Experience) {
       return (
@@ -56,12 +63,13 @@ const Tabs = ({ tabEntries }: TabsProperties) => {
             <Button
               key={tabEntry.name}
               text={tabEntry.name}
-              borderGradient={tabEntry.name === "About"}
-              onClick={() => setActiveTab(index)}
-              className={activeTab === index ? "active" : ""}
+              borderGradient={tabEntry.name === HIGHLIGHTED_TAB}
+              onClick={() => handleOnClick(index)}
+              className={activeTab === index ? "active-btn" : ""}
             ></Button>
           ))}
       </nav>
+
       <div>{renderContent(tabEntries[activeTab])}</div>
     </div>
   );

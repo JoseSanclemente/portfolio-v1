@@ -10,19 +10,21 @@ import { useState } from "react";
 // Icons
 import ExternalLink from "../../../../public/ExternalLink.svg";
 
-// Utils
-import { TailwindTextColor } from "@/app/styles/theme";
+// Types
 import { ExperienceProperties } from "./experience.types";
 
-const formatDate = (date: Date | undefined) => {
-  if (!date) {
-    return "Present";
+// Utils
+import { TailwindTextColor } from "@/app/styles/theme";
+
+const formatDate = (date: Date | string) => {
+  if (typeof date == "string") {
+    return date;
   }
 
   const month = new Intl.DateTimeFormat("en-US", { month: "long" }).format(
     date,
   );
-  const year = date?.getFullYear();
+  const year = date.getFullYear();
 
   return `${month} ${year}`;
 };
@@ -66,7 +68,7 @@ const Experience = (props: ExperienceProperties) => {
                   <Image
                     className="pt-1"
                     src={ExternalLink}
-                    alt="External Link icon"
+                    alt="External browser tab icon"
                   />
                 </Link>
               )}

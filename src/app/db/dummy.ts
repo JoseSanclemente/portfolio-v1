@@ -26,6 +26,7 @@ export const DummyExperience: ExperienceProperties[] = [
     companyURL: "https://www.perficient.com/",
     color: TailwindThemeColors.Red,
     from: new Date(2022, 8),
+    to: "Present",
     projects: [
       {
         name: "CAT",

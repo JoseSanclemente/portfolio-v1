@@ -46,8 +46,8 @@
 }
 
 .gradient--border:active,
-.active,
-.active:hover {
+.active-btn,
+.active-btn:hover {
   border: solid 1px var(--grayLight);
   color: var(--grayDark);
   background-color: var(--grayLight);

@@ -6,7 +6,7 @@ export type ExperienceProperties = {
   companyURL: string;
   color: TailwindThemeColors;
   from: Date;
-  to?: Date;
+  to: Date | string;
   projects: ProjectProperties[];
 };
 
