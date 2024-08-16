@@ -11,7 +11,7 @@ import FigmaLogo from "../../public/Figma.svg";
 import Tabs from "./components/Tabs/Tabs";
 
 // Database
-import { Database } from "./db/dummy";
+import { Dummydb } from "./db/dummy";
 
 export default function Home() {
   return (
@@ -38,16 +38,22 @@ export default function Home() {
             <Link
               href="https://www.linkedin.com/in/sanclemente-jose/"
               target="_blank"
+              className="opacity-100 transition-opacity duration-300 hover:opacity-100 lg:opacity-30"
             >
               <Image src={LinkedInLogo} alt="LinkedIn logo" />
             </Link>
             <Link
               href="https://www.instagram.com/panqueso.sanclemente/"
               target="_blank"
+              className="opacity-100 transition-opacity duration-300 hover:opacity-100 lg:opacity-30"
             >
               <Image src={InstagramLogo} alt="Instagram logo" />
             </Link>
-            <Link href="https://www.figma.com/@josesanclemente" target="_blank">
+            <Link
+              href="https://www.figma.com/@josesanclemente"
+              target="_blank"
+              className="opacity-100 transition-opacity duration-300 hover:opacity-100 lg:opacity-30"
+            >
               <Image src={FigmaLogo} alt="Figma logo" />
             </Link>
           </div>
@@ -63,7 +69,7 @@ export default function Home() {
       </div>
 
       <main className="w-100 lg:w-1/2 lg:py-24">
-        <Tabs tabEntries={Database}></Tabs>
+        <Tabs tabEntries={Dummydb}></Tabs>
       </main>
 
       <footer>

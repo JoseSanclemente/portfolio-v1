@@ -8,14 +8,14 @@ const config: Config = {
   ],
   theme: {
     colors: {
-      transparent: 'transparent',
-      current: 'currentColor',
-      red: '#e61717',
-      green: '#bfd732',
-      purple: '#7749ff',
+      transparent: "transparent",
+      current: "currentColor",
+      red: "var(--red)",
+      green: "var(--green)",
+      purple: "var(--purple)",
       gray: {
-        dark: '#1c1c1e',
-        light: '#f2f2f7',
+        dark: "var(--grayDark)",
+        light: "var(--grayLight)",
       },
     },
   },

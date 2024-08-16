@@ -1,6 +1,6 @@
 "use client";
 // React
-import { useState } from "react";
+import { act, useState } from "react";
 
 // Components
 import Button from "../Button/Button";
@@ -8,10 +8,10 @@ import Experience from "../Experience/Experience";
 import About from "../About/About";
 
 // Database
-import { DatabaseEntry, DataContentType, Datatype } from "@/app/db/dummy";
+import { DatabaseType, Datatype } from "@/app/db/dummy";
 
 type TabsProperties = {
-  tabEntries: DatabaseEntry[];
+  tabEntries: DatabaseType[];
 };
 
 const HIGHLIGHTED_TAB = "About";
@@ -24,8 +24,9 @@ const Tabs = ({ tabEntries }: TabsProperties) => {
     setActiveTab(tabIndex);
   };
 
-  const renderContent = (dataEntry: DatabaseEntry) => {
-    const dataType = dataEntry.type;
+  const renderContent = () => {
+    const data = tabEntries[activeTab];
+    const dataType = data?.type;
 
     if (!dataType) {
       return <></>;
@@ -34,21 +35,19 @@ const Tabs = ({ tabEntries }: TabsProperties) => {
     if (dataType === Datatype.Experience) {
       return (
         <div className="timeline flex flex-col gap-y-10">
-          {(dataEntry.content as DataContentType[typeof dataType]).map(
-            (experienceData) => (
-              <Experience
-                key={experienceData.company}
-                {...experienceData}
-              ></Experience>
-            ),
-          )}
+          {data.experienceList?.map((experienceData) => (
+            <Experience
+              key={experienceData.company}
+              {...experienceData}
+            ></Experience>
+          ))}
         </div>
       );
     }
 
     if (dataType === Datatype.About) {
       return (
-        <div className="max-w-fit pr-6 leading-8">
+        <div className="max-w-fit leading-8">
           <About />
         </div>
       );
@@ -70,7 +69,11 @@ const Tabs = ({ tabEntries }: TabsProperties) => {
           ))}
       </nav>
 
-      <div>{renderContent(tabEntries[activeTab])}</div>
+      {
+        <div key={activeTab} className="fade-animation">
+          {renderContent()}
+        </div>
+      }
     </div>
   );
 };

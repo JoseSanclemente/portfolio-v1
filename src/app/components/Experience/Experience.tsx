@@ -46,7 +46,9 @@ const Experience = (props: ExperienceProperties) => {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <h3 className={`mb-2 text-2xl font-extrabold ${titleColor}`}>
+      <h3
+        className={`mb-2 text-2xl font-extrabold transition-colors duration-200 ${titleColor}`}
+      >
         {props.title}
       </h3>
 
@@ -63,7 +65,11 @@ const Experience = (props: ExperienceProperties) => {
           props.projects.map((project) => (
             <div className="max-w-100" key={project.url}>
               {project.name && (
-                <Link href={project.url} className="flex" target="_blank">
+                <Link
+                  href={project.url}
+                  className="bounce-animation flex"
+                  target="_blank"
+                >
                   <h4 className="text-xl font-extrabold">{project.name}</h4>
                   <Image
                     className="pt-1"

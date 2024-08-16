@@ -6,19 +6,6 @@ export enum Datatype {
   About = "about",
 }
 
-type ContentType = ExperienceProperties[] | string;
-
-export type DatabaseEntry = {
-  name: string;
-  type: Datatype;
-  content: ContentType;
-};
-
-export type DataContentType = {
-  [Datatype.Experience]: ExperienceProperties[];
-  [Datatype.About]: string;
-};
-
 export const DummyExperience: ExperienceProperties[] = [
   {
     title: "Senior Frontend Analyst",
@@ -31,13 +18,13 @@ export const DummyExperience: ExperienceProperties[] = [
       {
         name: "CAT",
         description:
-          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+          "Build new landing pages tailored for various marketing campaigns to increase engagement and conversion rates. Develop modular templates for 20 types of banners, streamlining production for CAT's dealers. Organize and deliver web components tailored to each marketing campaign for 10 clients, ensuring consistency and effectiveness across all platforms.",
         url: "https://parts.cat.com/es/catcorp",
       },
       {
         name: "DFIN",
         description:
-          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+          "Engineer a new feature for the text editor product that tracks changes in the document, enhancing collaboration and version control. Maintain and test the SlateJS library, ensuring stability and performance for the text editor. Optimize the web application built with React and TypeScript to improve speed and user experience. Deliver new features using LaunchDarkly feature flags for controlled and targeted deployment.",
         url: "https://www.dfinsolutions.com/",
       },
     ],
@@ -53,7 +40,7 @@ export const DummyExperience: ExperienceProperties[] = [
       {
         name: "Pvolve",
         description:
-          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+          "Optimize React components to enhance responsiveness and reduce loading times. Lead the team in planning and executing the next iterations of the product. Integrate Braze and Segment into the web app to effectively track and centralize user data and leads. Develop innovative user interfaces using Next.js. Implement and deliver new features with Optimizely feature flags for controlled deployment and testing.",
         url: "https://www.pvolve.com/",
       },
     ],
@@ -69,24 +56,24 @@ export const DummyExperience: ExperienceProperties[] = [
       {
         name: "",
         description:
-          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+          "Design and implement a scalable backend architecture using Golang and AWS. Develop a web application with Vue 2 and TypeScript. Lead the team in managing product requirements. Conduct user research to inform UX design and integrate the company's design system into the product.",
         url: "",
       },
     ],
   },
 ];
 
-// This is just for testing
-const DataContent: DataContentType = {
-  [Datatype.Experience]: DummyExperience,
-  [Datatype.About]: "",
+export type DatabaseType = {
+  name: string;
+  type: Datatype;
+  experienceList?: ExperienceProperties[];
 };
 
-export const Database: DatabaseEntry[] = [
+export const Dummydb: DatabaseType[] = [
   {
     name: "Experience",
     type: Datatype.Experience,
-    content: DataContent[Datatype.Experience],
+    experienceList: DummyExperience,
   },
-  { name: "About", type: Datatype.About, content: DataContent[Datatype.About] },
+  { name: "About", type: Datatype.About },
 ];

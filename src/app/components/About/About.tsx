@@ -13,13 +13,13 @@ const About = () => {
       <p>
         &quot;
         <span className="gradient font-bold">It&apos;s probably a scam</span> or
-        something.&quot; I thought.
+        something.&quot;
       </p>
       <br />
       <p>
         When the semester finally ended, I arrived home and began unpacking
         everything in my backpack. At that moment, that small piece of paper
-        reappeared. I read it again, but this time with a bit more attention.
+        reappeared.
       </p>
       <br />
       <p>
@@ -27,12 +27,12 @@ const About = () => {
         <span className="gradient font-bold">
           What&apos;s the worst that could happen?
         </span>{" "}
-        They&apos;re offering a decent salary for a student.&quot;
+        They&apos;re offering a decent salary for a student also.&quot;
       </p>
       <br />
       <p>
-        So I sent an email inquiring about the position, and thanks to that
-        small moment of motivation,{" "}
+        So I sent an email asking about the position, and thanks to that small
+        moment of motivation,{" "}
         <span className="gradient font-bold">my life changed completely</span>.
         I started working on a project that didn&apos;t even have a name yet,
         and three years later, in 2021, it would be present in Colombia, Mexico,
