@@ -73,6 +73,7 @@
   background-color: var(--grayDark);
   border: 1px solid var(--grayLight);
   border-radius: 50%;
+  z-index: 0;
 }
 
 .timeline-event:first-child::before {

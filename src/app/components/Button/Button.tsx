@@ -25,7 +25,7 @@ const Button = ({
 
   return (
     <div
-      className={`py-2 px-4 text-center bg-transparent border rounded-xl border-gray-dark text-gray-light active:bg-gray-light active:text-gray-dark cursor-pointer select-none ${borderClass} ${className}`}
+      className={`cursor-pointer select-none rounded-xl border border-gray-dark bg-transparent px-4 py-2 text-center text-gray-light active:bg-gray-light active:text-gray-dark ${borderClass} ${className}`}
       onClick={onClick}
     >
       {text}

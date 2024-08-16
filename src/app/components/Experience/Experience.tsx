@@ -20,7 +20,7 @@ const formatDate = (date: Date | undefined) => {
   }
 
   const month = new Intl.DateTimeFormat("en-US", { month: "long" }).format(
-    date
+    date,
   );
   const year = date?.getFullYear();
 
@@ -40,7 +40,7 @@ const Experience = (props: ExperienceProperties) => {
 
   return (
     <div
-      className={`max-w-fit pl-6 timeline-event`}
+      className={`timeline-event max-w-fit pl-6`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
@@ -59,9 +59,9 @@ const Experience = (props: ExperienceProperties) => {
       <div className="flex flex-col gap-y-4">
         {props.projects &&
           props.projects.map((project) => (
-            <div className="max-w-sm" key={project.url}>
+            <div className="max-w-100" key={project.url}>
               {project.name && (
-                <Link href={project.url} className="flex">
+                <Link href={project.url} className="flex" target="_blank">
                   <h4 className="text-xl font-extrabold">{project.name}</h4>
                   <Image
                     className="pt-1"

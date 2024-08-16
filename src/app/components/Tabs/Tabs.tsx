@@ -26,14 +26,14 @@ const Tabs = ({ tabEntries }: TabsProperties) => {
 
     if (dataType === Datatype.Experience) {
       return (
-        <div className="flex flex-col gap-y-10 timeline">
+        <div className="timeline flex flex-col gap-y-10">
           {(dataEntry.content as DataContentType[typeof dataType]).map(
             (experienceData) => (
               <Experience
                 key={experienceData.company}
                 {...experienceData}
               ></Experience>
-            )
+            ),
           )}
         </div>
       );
@@ -50,7 +50,7 @@ const Tabs = ({ tabEntries }: TabsProperties) => {
 
   return (
     <div>
-      <nav className="flex flex-row justify-between gap-x-4 max-w-fit mt-4 lg:mt-0 mb-8">
+      <nav className="max-w-screen sticky top-0 z-10 -mx-6 flex flex-row justify-start gap-x-4 bg-gray-dark px-6 py-6 xl:pt-20">
         {tabEntries &&
           tabEntries.map((tabEntry, index) => (
             <Button
