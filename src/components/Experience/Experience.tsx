@@ -8,26 +8,14 @@ import Link from "next/link";
 import { useState } from "react";
 
 // Icons
-import ExternalLink from "../../../../public/ExternalLink.svg";
+import ExternalLink from "../../../public/ExternalLink.svg";
 
 // Types
-import { ExperienceProperties } from "./experience.types";
+import { ExperienceProperties } from "@/types/Experience";
 
 // Utils
-import { TailwindTextColor } from "@/app/styles/theme";
-
-const formatDate = (date: Date | string) => {
-  if (typeof date == "string") {
-    return date;
-  }
-
-  const month = new Intl.DateTimeFormat("en-US", { month: "long" }).format(
-    date,
-  );
-  const year = date.getFullYear();
-
-  return `${month} ${year}`;
-};
+import { TailwindTextColor } from "@/styles/theme";
+import { formatDate } from "@/utils/date";
 
 const Experience = (props: ExperienceProperties) => {
   const [titleColor, setTitleColor] = useState("");
@@ -42,7 +30,7 @@ const Experience = (props: ExperienceProperties) => {
 
   return (
     <div
-      className={`timeline-event max-w-fit pl-6`}
+      className={`timeline-event max-w-100 pl-6`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >

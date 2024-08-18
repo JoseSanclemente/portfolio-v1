@@ -7,7 +7,10 @@ import {
   GradientBorderClass,
   TailwindHoverBorderColor,
   TailwindThemeColors,
-} from "@/app/styles/theme";
+} from "@/styles/theme";
+
+// Types
+import { ButtonProperties } from "@/types/Button";
 
 const Button = ({
   text,
@@ -24,12 +27,12 @@ const Button = ({
   }, []);
 
   return (
-    <div
+    <button
       className={`cursor-pointer select-none rounded-xl border border-gray-dark bg-transparent px-4 py-2 text-center text-gray-light shadow transition active:bg-gray-light active:text-gray-dark ${borderClass} ${className}`}
       onClick={onClick}
     >
       {text}
-    </div>
+    </button>
   );
 };
 

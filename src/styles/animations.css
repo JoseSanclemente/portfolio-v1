@@ -1,5 +1,5 @@
 .fade-animation {
-  animation: fade-in 1s;
+  animation: fade-in 1.5s;
 }
 
 @keyframes fade-in {
@@ -24,6 +24,6 @@
   }
 
   50% {
-    transform: translateY(-25%);
+    transform: translateY(-15%);
   }
 }

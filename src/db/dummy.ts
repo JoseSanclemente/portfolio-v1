@@ -1,10 +1,6 @@
-import { ExperienceProperties } from "../components/Experience/experience.types";
+import { ExperienceProperties } from "../types/Experience";
 import { TailwindThemeColors } from "../styles/theme";
-
-export enum Datatype {
-  Experience = "experience",
-  About = "about",
-}
+import { DatabaseType, Datatype } from "@/types/Database";
 
 export const DummyExperience: ExperienceProperties[] = [
   {
@@ -62,12 +58,6 @@ export const DummyExperience: ExperienceProperties[] = [
     ],
   },
 ];
-
-export type DatabaseType = {
-  name: string;
-  type: Datatype;
-  experienceList?: ExperienceProperties[];
-};
 
 export const Dummydb: DatabaseType[] = [
   {

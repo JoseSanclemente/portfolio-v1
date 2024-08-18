@@ -1,6 +1,6 @@
 const About = () => {
   return (
-    <div className="pl-4">
+    <section className="mt-4 min-h-96 pl-4">
       <p>
         During my Computer Science career, I always felt that all my classmates
         had at least one favorite class, but I was already halfway through my
@@ -48,7 +48,7 @@ const About = () => {
       </p>
       <br />
       <p>I enjoy designing, developing, cooking, photographing and gaming.</p>
-    </div>
+    </section>
   );
 };
 
