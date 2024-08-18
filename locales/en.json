@@ -2,5 +2,38 @@
   "Home": {
     "frontend_developer": "Frontend Developer",
     "passionated_about_people": "Passionate about people"
+  },
+  "About": {
+    "during_my_computer_science": "During my Computer Science career, I always felt that all my classmates had at least one favorite class, but I was already halfway through my degree and couldn&apos;t find anything that motivated me to continue at the university. In 2018, while studying for final exams, someone handed me a small piece of paper advertising a developer position for a new project, but I chose to ignore it.",
+    "its_probably_scam": "&quot;It's probably a scam",
+    "or_something": " or something.&quot;",
+    "when_semester_ended": "When the semester finally ended, I arrived home and began unpacking everything in my backpack. At that moment, that small piece of paper reappeared.",
+    "should_I_send": "Should I send them my CV? I really don't have much to lose.",
+    "what_could_happen": " What's the worst that could happen?",
+    "they_are_offering": "They're offering a decent salary for a student also.",
+    "so_I_sent_an_email": "So I sent an email asking about the position, and thanks to that small moment of motivation,",
+    "my_life_changed": " my life changed completely",
+    "I_started_working": "That's how I started working at Truora, a startup that didn't even have a name at that time, but three years later, in 2021, it would be present in Colombia, Mexico, Chile, Brazil, and Panama. I learned what it's like to be part of the beginning of a startup, to build a project from scratch, to raise capital, to lead teams, to understand the product, its requirements, and how to grow exponentially. But most importantly, I learned that the motivation I had been seeking years before was found in those",
+    "projects_aims_to": "projects that aim to improve our day-to-day lives",
+    "one_step": ", one step at a time.",
+    "I_enjoy": "I enjoy designing, developing, cooking, photographing and gaming."
+  },
+  "Experience": {
+    "Perficient": {
+      "cat_description": "Build new landing pages tailored for various marketing campaigns to increase engagement and conversion rates. Develop modular templates for 20 types of banners, streamlining production for CAT's dealers. Organize and deliver web components tailored to each marketing campaign for 10 clients, ensuring consistency and effectiveness across all platforms.",
+      "dfin_description": "Engineer a new feature for the text editor product that tracks changes in the document, enhancing collaboration and version control. Maintain and test the SlateJS library, ensuring stability and performance for the text editor. Optimize the web application built with React and TypeScript to improve speed and user experience. Deliver new features using LaunchDarkly feature flags for controlled and targeted deployment."
+    },
+    "Globant": {
+      "pvolve_description": "Optimize React components to enhance responsiveness and reduce loading times. Lead the team in planning and executing the next iterations of the product. Integrate Braze and Segment into the web app to effectively track and centralize user data and leads. Develop innovative user interfaces using Next.js. Implement and deliver new features with Optimizely feature flags for controlled deployment and testing."
+    },
+    "Truora": {
+      "truora_description": "Design and implement a scalable backend architecture using Golang and AWS. Develop a web application with Vue 2 and TypeScript. Lead the team in managing product requirements. Conduct user research to inform UX design and integrate the company's design system into the product."
+    }
+  },
+  "Dates": {
+    "present": "Present",
+    "september": "September",
+    "june": "June",
+    "july": "July"
   }
 }

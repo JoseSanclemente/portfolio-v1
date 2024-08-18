@@ -3,7 +3,8 @@
 }
 
 @keyframes fade-in {
-  0% {
+  0%,
+  10% {
     opacity: 0;
     transform: translateY(3%);
   }

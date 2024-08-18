@@ -1,9 +1,10 @@
 "use client";
 // Next
-
+import { usePathname } from "next/navigation";
 import Link from "next/link";
+
 // React
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 // Components
 import Button from "../Button/Button";
@@ -13,8 +14,18 @@ import { TabsProperties } from "@/types/Tabs";
 
 const HIGHLIGHTED_TAB = "About";
 
+// FIXME: Fix render of the pages
 const Tabs = ({ tabList, children }: TabsProperties) => {
-  const [activeTab, setActiveTab] = useState(0);
+  const [activeTab, setActiveTab] = useState(-1);
+  const currentPath = usePathname();
+
+  useEffect(() => {
+    const currentActiveTab = tabList.findIndex(
+      (tab) => tab.path === currentPath,
+    );
+
+    setActiveTab(currentActiveTab);
+  }, []);
 
   const handleOnClick = (tabIndex: number) => {
     setActiveTab(tabIndex);
@@ -25,12 +36,12 @@ const Tabs = ({ tabList, children }: TabsProperties) => {
       <nav className="max-w-screen sticky top-0 z-10 -mx-6 flex flex-row justify-start gap-x-4 bg-gray-dark px-6 py-6 xl:pt-20">
         {tabList &&
           tabList.map((tab, index) => (
-            <Link replace key={tab.path} href={`/${tab.path}`}>
+            <Link key={tab.path} href={`${tab.path}`}>
               <Button
                 text={tab.title}
                 borderGradient={tab.title === HIGHLIGHTED_TAB}
                 onClick={() => handleOnClick(index)}
-                className={activeTab === index ? "active-btn" : ""}
+                className={index === activeTab ? "active-btn" : ""}
               ></Button>
             </Link>
           ))}

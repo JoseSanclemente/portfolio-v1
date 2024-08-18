@@ -1,6 +1,41 @@
 {
-  "Home": {
-    "frontend_developer": "Desarrollador Frontend",
-    "passionated_about_people": "Apasionado por las personas"
+  "Layout": {
+    "frontend_developer": "Desarrollador Front-end",
+    "passionated_about_people": "Apasionado por las personas",
+    "bringing_tech_products": "Traer productos a la vida contando historias es mi pasión <3",
+    "made_with": "Hecho con "
+  },
+  "About": {
+    "during_my_computer_science": "Durante mi carrera en Ciencias de la computación, siempre sentí que todos mis compañeros tenían al menos una asignatura preferida, pero yo iba ya por la mitad de mi título y no podía encontrar nada que me motivara a seguir en la universidad. En 2018, mientras estudiaba para los exámenes, alguien me dió un pequeño papel donde estaban buscando un desarrollador para un nuevo proyecto, pero decidí ignorarlo.",
+    "its_probably_scam": "Probablemente sea una estafa",
+    "or_something": " o algo así.",
+    "when_semester_ended": "Cuando por fin terminó el semestre, llegué a mi casa y comencé a desempacar mi maleta. En ese momento, apareció otra vez el papel.",
+    "should_I_send": "¿Debería de enviar mi CV? Realmente no tengo mucho que perder.",
+    "what_could_happen": " ¿Qué es lo peor que puede pasar?",
+    "they_are_offering": " Además, ofrecen un buen salario para ser estudiante.",
+    "so_I_sent_an_email": "Así que decidí enviarles un correo preguntando por la vacante, y gracias a ese pequeño momento de motivación",
+    "my_life_changed": " mi vida cambió completamente.",
+    "I_started_working": "Así fue como comencé a trabajar en Truora, una startup que ni siquiera tenía nombre en ese momento, pero que tres años después, en 2021, estaría presente en Colombia, México, Chile, Brasil y Panamá. Aprendí lo que es ser parte de una startup desde el comienzo, a construir proyectos desde cero, a levantar capital, liderar equipos, entender los requerimientos del producto, y cómo crecer de una forma exponencial. Pero aún más importante, descubrí que esa motivación que estuve buscando durante estos años, la encontré en esos",
+    "projects_aims_to": " proyectos que buscan mejorar nuestro día a día",
+    "one_step": ", un paso a la vez.",
+    "I_enjoy": "Disfruto mucho diseñar, desarrollar, cocinar, tomar fotos y jugar videojuegos."
+  },
+  "Experience": {
+    "Perficient": {
+      "cat_description": "Creé nuevos sitios web adaptados a varias campañas de marketing para aumentar la participación y las tasas de conversión. Desarrollé plantillas modulares en HTML y CSS para 20 tipos de banners, agilizando la producción para los distribuidores de CAT. Construí componentes web personalizados para cada campaña de marketing de 10 clientes, asegurando coherencia y efectividad en todas las plataformas.",
+      "dfin_description": "Desarrollé una nueva característica para un editor de texto privado que rastrea los cambios en el documento, mejorando la colaboración y el control de versiones. Mantuve y creé pruebas para la biblioteca SlateJS, asegurando la estabilidad y el rendimiento del editor de texto. Optimizé la aplicación web construida con React y TypeScript para mejorar la velocidad y la experiencia del usuario. Entregué nuevas funciones utilizando las feature flags de LaunchDarkly para un despliegue controlado y dirigido."
+    },
+    "Globant": {
+      "pvolve_description": "Optimicé componentes de React para mejorar la capacidad de respuesta y reducir los tiempos de carga. Lideré al equipo en la planificación y ejecución de las iteraciones del servicio de reserva de clases virtuales. Integré Braze y Segment en la aplicación web para rastrear y centralizar eficazmente los datos de usuarios y leads. Desarrollé interfaces de usuario innovadoras utilizando Next.js. Implementé y entregué nuevas funciones con las feature flags de Optimizely."
+    },
+    "Truora": {
+      "truora_description": "Diseñé e implementé una arquitectura de backend escalable utilizando Golang y AWS. Desarrollé una aplicación web con Vue 2 y TypeScript. Lideré un equipo de 5 en la gestión de los requisitos del producto y su implementación. Realicé investigaciones de usuarios y pruebas A/B para el diseño de experiencia de usuario. Implementé un design system único para la compañía. Fui tech lead de 5 equipos durante el desarollo de un foro web para la empresa."
+    }
+  },
+  "Dates": {
+    "present": "Presente",
+    "september": "Septiembre",
+    "june": "Junio",
+    "july": "Julio"
   }
 }

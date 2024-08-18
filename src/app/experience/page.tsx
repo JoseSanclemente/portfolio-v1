@@ -15,15 +15,17 @@ import { Datatype } from "@/types/Database";
 
 const ExperiencePage = () => {
   const [experienceList, setExperienceList] = useState(
-    [] as ExperienceProperties[] | undefined,
+    [] as ExperienceProperties[],
   );
 
   useEffect(() => {
+    // TODO: Connect with a real db or a CMS
     const experienceDatabase = Dummydb.find(
       (data) => data.type === Datatype.Experience,
     );
 
-    setExperienceList(experienceDatabase?.experienceList);
+    if (experienceDatabase?.experienceList)
+      setExperienceList(experienceDatabase?.experienceList);
   }, []);
 
   return (

@@ -6,10 +6,10 @@ import Image from "next/image";
 
 // Styles
 import "./globals.css";
-import "../styles/animations.css";
+import "@/styles/animations.css";
 
 // i18n
-import { NextIntlClientProvider } from "next-intl";
+import { NextIntlClientProvider, useTranslations } from "next-intl";
 import { getLocale, getMessages, getTranslations } from "next-intl/server";
 
 // Icons
@@ -38,12 +38,15 @@ export default async function RootLayout({
 }>) {
   const locale = await getLocale();
   const messages = await getMessages();
-  const t = await getTranslations("Home");
+
+  // RootLayout is an async function, so we must use getTranslations()
+  // instead of useTranslations()
+  const t = await getTranslations("Layout");
 
   return (
     <html lang={locale}>
       <body
-        className={`${inter.className} scroll-smooth bg-gray-dark text-sm text-gray-light md:text-base`}
+        className={`${inter.className} overflow-y-scroll scroll-smooth bg-gray-dark text-sm text-gray-light md:text-base`}
       >
         <NextIntlClientProvider messages={messages}>
           <div className="mx-auto flex min-h-screen max-w-screen-xl flex-col gap-x-14 px-6 py-12 md:px-12 md:py-20 lg:flex-row lg:py-0 xl:px-0">
@@ -61,8 +64,7 @@ export default async function RootLayout({
                   </span>
                 </h2>
                 <p className="text-sm md:text-base">
-                  Bringing tech products to life by telling stories is my
-                  passion &lt;3
+                  {t("bringing_tech_products")}
                 </p>
               </header>
 
@@ -91,7 +93,7 @@ export default async function RootLayout({
                   </Link>
                 </div>
                 <p className="hidden lg:block">
-                  © 2024 - Jose Sanclemente - Made with{" "}
+                  © 2024 - {t("made_with")}
                   <span className="gradient font-bold">
                     <Link href="https://nextjs.org/" target="_blank">
                       Next.js
@@ -104,17 +106,18 @@ export default async function RootLayout({
             <main className="w-100 lg:w-1/2 lg:py-24">
               <Tabs
                 tabList={[
-                  { title: "Experience", path: "experience" },
-                  { title: "About", path: "about" },
+                  { title: "Experience", path: "/experience" },
+                  { title: "About", path: "/about" },
                 ]}
               >
                 {children}
               </Tabs>
             </main>
 
+            {/* Visible only in mobile */}
             <footer>
               <p className="mt-24 text-center text-xs md:text-sm lg:hidden">
-                © 2024 - Jose Sanclemente - Made with{" "}
+                © 2024 - {t("made_with")}
                 <span className="gradient font-bold">
                   <Link href="https://nextjs.org/" target="_blank">
                     Next.js
