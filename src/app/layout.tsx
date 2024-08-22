@@ -9,7 +9,7 @@ import "./globals.css";
 import "@/styles/animations.css";
 
 // i18n
-import { NextIntlClientProvider, useTranslations } from "next-intl";
+import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getMessages, getTranslations } from "next-intl/server";
 
 // Icons
@@ -73,6 +73,7 @@ export default async function RootLayout({
                   <Link
                     href="https://www.linkedin.com/in/sanclemente-jose/"
                     target="_blank"
+                    rel="noopener noreferrer"
                     className="opacity-100 transition-opacity duration-300 hover:opacity-100 lg:opacity-30"
                   >
                     <Image src={LinkedInLogo} alt="LinkedIn logo" />
@@ -80,6 +81,7 @@ export default async function RootLayout({
                   <Link
                     href="https://www.instagram.com/panqueso.sanclemente/"
                     target="_blank"
+                    rel="noopener noreferrer"
                     className="opacity-100 transition-opacity duration-300 hover:opacity-100 lg:opacity-30"
                   >
                     <Image src={InstagramLogo} alt="Instagram logo" />
@@ -87,6 +89,7 @@ export default async function RootLayout({
                   <Link
                     href="https://www.figma.com/@josesanclemente"
                     target="_blank"
+                    rel="noopener noreferrer"
                     className="opacity-100 transition-opacity duration-300 hover:opacity-100 lg:opacity-30"
                   >
                     <Image src={FigmaLogo} alt="Figma logo" />
@@ -95,7 +98,11 @@ export default async function RootLayout({
                 <p className="hidden lg:block">
                   © 2024 - {t("made_with")}
                   <span className="gradient font-bold">
-                    <Link href="https://nextjs.org/" target="_blank">
+                    <Link
+                      href="https://nextjs.org/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       Next.js
                     </Link>
                   </span>
@@ -119,7 +126,11 @@ export default async function RootLayout({
               <p className="mt-24 text-center text-xs md:text-sm lg:hidden">
                 © 2024 - {t("made_with")}
                 <span className="gradient font-bold">
-                  <Link href="https://nextjs.org/" target="_blank">
+                  <Link
+                    href="https://nextjs.org/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     Next.js
                   </Link>
                 </span>

@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 //React
-import { useState } from "react";
+import { useState, useTransition } from "react";
 
 // Icons
 import ExternalLink from "../../../public/ExternalLink.svg";
@@ -15,9 +15,12 @@ import { ExperienceProperties } from "@/types/Experience";
 
 // Utils
 import { TailwindTextColor } from "@/styles/theme";
-import { formatDate } from "@/utils/date";
+import { translateDate } from "@/utils/date";
+import { useTranslations } from "next-intl";
 
 const Experience = (props: ExperienceProperties) => {
+  const t = useTranslations("Experience");
+
   const [titleColor, setTitleColor] = useState("");
 
   const handleMouseEnter = () => {
@@ -26,6 +29,20 @@ const Experience = (props: ExperienceProperties) => {
 
   const handleMouseLeave = () => {
     setTitleColor("");
+  };
+
+  const getDescriptionTranslationKey = (name: string, index: number) => {
+    const descriptionKey = `desc_${index}`;
+
+    return `${name}.${descriptionKey}`;
+  };
+
+  const getExperienceTime = (from: Date, to: Date | string) => {
+    if (typeof to === "string" && to !== "") {
+      return `(${translateDate(from)} - ${t("present")})`;
+    }
+
+    return `(${translateDate(from)} - ${translateDate(to)})`;
   };
 
   return (
@@ -45,18 +62,19 @@ const Experience = (props: ExperienceProperties) => {
           <span className="underline">{props.company}</span>
         </Link>
 
-        {` (${formatDate(props.from)} - ${formatDate(props.to)})`}
+        {getExperienceTime(props.from, props.to)}
       </p>
 
       <div className="flex flex-col gap-y-4">
         {props.projects &&
-          props.projects.map((project) => (
+          props.projects.map((project, index) => (
             <div className="max-w-100" key={project.url}>
               {project.name && (
                 <Link
                   href={project.url}
                   className="bounce-animation flex"
                   target="_blank"
+                  rel="noopener noreferrer"
                 >
                   <h4 className="text-xl font-extrabold">{project.name}</h4>
                   <Image
@@ -66,7 +84,9 @@ const Experience = (props: ExperienceProperties) => {
                   />
                 </Link>
               )}
-              <p className="leading-7">{project.description}</p>
+              <p className="leading-7">
+                {t(getDescriptionTranslationKey(props.company, index))}
+              </p>
             </div>
           ))}
       </div>

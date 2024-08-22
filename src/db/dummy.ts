@@ -2,9 +2,6 @@ import { ExperienceProperties } from "../types/Experience";
 import { TailwindThemeColors } from "../styles/theme";
 import { DatabaseType, Datatype } from "@/types/Database";
 
-// FIXME
-// const t = useTranslations("Experience");
-
 export const DummyExperience: ExperienceProperties[] = [
   {
     title: "Senior Frontend Analyst",

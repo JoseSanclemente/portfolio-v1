@@ -11,6 +11,7 @@ import Button from "../Button/Button";
 
 // Types
 import { TabsProperties } from "@/types/Tabs";
+import { useTranslations } from "next-intl";
 
 const HIGHLIGHTED_TAB = "About";
 
@@ -18,6 +19,8 @@ const HIGHLIGHTED_TAB = "About";
 const Tabs = ({ tabList, children }: TabsProperties) => {
   const [activeTab, setActiveTab] = useState(-1);
   const currentPath = usePathname();
+
+  const t = useTranslations();
 
   useEffect(() => {
     const currentActiveTab = tabList.findIndex(
@@ -38,7 +41,7 @@ const Tabs = ({ tabList, children }: TabsProperties) => {
           tabList.map((tab, index) => (
             <Link key={tab.path} href={`${tab.path}`}>
               <Button
-                text={tab.title}
+                text={t(`Titles.${tab.title}`)}
                 borderGradient={tab.title === HIGHLIGHTED_TAB}
                 onClick={() => handleOnClick(index)}
                 className={index === activeTab ? "active-btn" : ""}

@@ -1,9 +1,12 @@
+import { getUserLocale } from "@/services/locale";
+import { capitalizeString } from "./string";
+
 /**
- * Returns the month and year from a date
+ * Returns the translated month and year from a date
  * @param date
  * @returns string
  */
-export const formatDate = (date: Date | string) => {
+export const translateDate = (date: Date | string) => {
   if (!date) {
     return "";
   }
@@ -12,10 +15,13 @@ export const formatDate = (date: Date | string) => {
     return date;
   }
 
-  const month = new Intl.DateTimeFormat("en-US", { month: "long" }).format(
-    date,
-  );
+  let locale;
+  getUserLocale().then((userLocale) => (locale = userLocale));
+
   const year = date.getFullYear();
 
-  return `${month} ${year}`;
+  const month = new Intl.DateTimeFormat(locale, { month: "long" }).format(date);
+  const capitalizedMonth = capitalizeString(month);
+
+  return `${capitalizedMonth} ${year}`;
 };
