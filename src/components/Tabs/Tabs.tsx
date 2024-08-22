@@ -1,13 +1,13 @@
 "use client";
 // Next
-import { usePathname } from "next/navigation";
+import { redirect, usePathname } from "next/navigation";
 import Link from "next/link";
 
 // React
 import { useEffect, useState } from "react";
 
 // Components
-import Button from "../Button/Button";
+import Button from "@/components/Button/Button";
 
 // Types
 import { TabsProperties } from "@/types/Tabs";
@@ -28,26 +28,31 @@ const Tabs = ({ tabList, children }: TabsProperties) => {
     );
 
     setActiveTab(currentActiveTab);
-  }, []);
+  }, [tabList, currentPath]);
 
-  const handleOnClick = (tabIndex: number) => {
-    setActiveTab(tabIndex);
+  const handleOnClick = (index: number, path: string) => {
+    setActiveTab(index);
+
+    redirect(path);
+  };
+
+  const isActiveTab = (index: number) => {
+    return index === activeTab ? "active-btn" : "";
   };
 
   return (
     <div>
       <nav className="max-w-screen sticky top-0 z-10 -mx-6 flex flex-row justify-start gap-x-4 bg-gray-dark px-6 py-6 xl:pt-20">
-        {tabList &&
-          tabList.map((tab, index) => (
-            <Link key={tab.path} href={`${tab.path}`}>
-              <Button
-                text={t(`Titles.${tab.title}`)}
-                borderGradient={tab.title === HIGHLIGHTED_TAB}
-                onClick={() => handleOnClick(index)}
-                className={index === activeTab ? "active-btn" : ""}
-              ></Button>
-            </Link>
-          ))}
+        {tabList.map((tab, index) => (
+          <Link key={tab.path} href={`${tab.path}`}>
+            <Button
+              text={t(`Titles.${tab.title}`)}
+              borderGradient={tab.title === HIGHLIGHTED_TAB}
+              onClick={() => handleOnClick(index, tab.path)}
+              className={isActiveTab(index)}
+            />
+          </Link>
+        ))}
       </nav>
 
       {

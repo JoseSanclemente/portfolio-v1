@@ -19,6 +19,7 @@ import FigmaLogo from "../../public/Figma.svg";
 
 // Components
 import Tabs from "@/components/Tabs/Tabs";
+import { TabsInfo } from "@/db/dummy";
 
 // Vercel
 import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -111,14 +112,7 @@ export default async function RootLayout({
             </div>
 
             <main className="w-100 lg:w-1/2 lg:py-24">
-              <Tabs
-                tabList={[
-                  { title: "Experience", path: "/experience" },
-                  { title: "About", path: "/about" },
-                ]}
-              >
-                {children}
-              </Tabs>
+              <Tabs tabList={TabsInfo}>{children}</Tabs>
             </main>
 
             {/* Visible only in mobile */}

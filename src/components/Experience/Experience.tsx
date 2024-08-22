@@ -5,23 +5,29 @@ import Image from "next/image";
 import Link from "next/link";
 
 //React
-import { useState, useTransition } from "react";
+import { useEffect, useState } from "react";
 
 // Icons
-import ExternalLink from "../../../public/ExternalLink.svg";
+import ExternalLink from "@/../public/ExternalLink.svg";
 
 // Types
 import { ExperienceProperties } from "@/types/Experience";
 
 // Utils
-import { TailwindTextColor } from "@/styles/theme";
+import { TailwindTextColor } from "@/theme";
 import { translateDate } from "@/utils/date";
 import { useTranslations } from "next-intl";
+import { getUserLocale } from "@/services/locale";
 
 const Experience = (props: ExperienceProperties) => {
   const t = useTranslations("Experience");
 
   const [titleColor, setTitleColor] = useState("");
+  const [locale, setLocale] = useState("");
+
+  useEffect(() => {
+    getUserLocale().then((userLocale) => setLocale(userLocale));
+  }, []);
 
   const handleMouseEnter = () => {
     setTitleColor(TailwindTextColor[props.color]);
@@ -39,10 +45,10 @@ const Experience = (props: ExperienceProperties) => {
 
   const getExperienceTime = (from: Date, to: Date | string) => {
     if (typeof to === "string" && to !== "") {
-      return `(${translateDate(from)} - ${t("present")})`;
+      return `(${translateDate(from, locale)} - ${t("present")})`;
     }
 
-    return `(${translateDate(from)} - ${translateDate(to)})`;
+    return `(${translateDate(from, locale)} - ${translateDate(to, locale)})`;
   };
 
   return (
@@ -66,29 +72,29 @@ const Experience = (props: ExperienceProperties) => {
       </p>
 
       <div className="flex flex-col gap-y-4">
-        {props.projects &&
-          props.projects.map((project, index) => (
-            <div className="max-w-100" key={project.url}>
-              {project.name && (
-                <Link
-                  href={project.url}
-                  className="bounce-animation flex"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <h4 className="text-xl font-extrabold">{project.name}</h4>
-                  <Image
-                    className="pt-1"
-                    src={ExternalLink}
-                    alt="External browser tab icon"
-                  />
-                </Link>
-              )}
-              <p className="leading-7">
-                {t(getDescriptionTranslationKey(props.company, index))}
-              </p>
-            </div>
-          ))}
+        {props.projects.map((project, index) => (
+          <div className="max-w-100" key={project.url}>
+            {project.name && (
+              <Link
+                href={project.url}
+                className="bounce-animation flex"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <h4 className="text-xl font-extrabold">{project.name}</h4>
+                <Image
+                  className="pt-1"
+                  src={ExternalLink}
+                  alt="External browser tab icon"
+                />
+              </Link>
+            )}
+
+            <p className="leading-7">
+              {t(getDescriptionTranslationKey(props.company, index))}
+            </p>
+          </div>
+        ))}
       </div>
     </div>
   );

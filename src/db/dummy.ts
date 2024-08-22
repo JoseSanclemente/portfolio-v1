@@ -1,6 +1,11 @@
-import { ExperienceProperties } from "../types/Experience";
-import { TailwindThemeColors } from "../styles/theme";
+import { ExperienceProperties } from "@/types/Experience";
+import { TailwindThemeColors } from "@/theme";
 import { DatabaseType, Datatype } from "@/types/Database";
+
+export const TabsInfo = [
+  { title: "Experience", path: "/experience" },
+  { title: "About", path: "/about" },
+];
 
 export const DummyExperience: ExperienceProperties[] = [
   {

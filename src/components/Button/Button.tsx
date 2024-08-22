@@ -7,7 +7,7 @@ import {
   GradientBorderClass,
   TailwindHoverBorderColor,
   TailwindThemeColors,
-} from "@/styles/theme";
+} from "@/theme";
 
 // Types
 import { ButtonProperties } from "@/types/Button";
@@ -24,7 +24,7 @@ const Button = ({
     borderGradient
       ? setBorderClass(GradientBorderClass)
       : setBorderClass(TailwindHoverBorderColor[TailwindThemeColors.GrayLight]);
-  }, []);
+  }, [borderGradient]);
 
   return (
     <button

@@ -14,9 +14,7 @@ import { Dummydb } from "@/db/dummy";
 import { Datatype } from "@/types/Database";
 
 const ExperiencePage = () => {
-  const [experienceList, setExperienceList] = useState(
-    [] as ExperienceProperties[],
-  );
+  const [experiences, setExperiences] = useState([] as ExperienceProperties[]);
 
   useEffect(() => {
     // TODO: Connect with a real db or a CMS
@@ -25,16 +23,16 @@ const ExperiencePage = () => {
     );
 
     if (experienceDatabase?.experienceList)
-      setExperienceList(experienceDatabase?.experienceList);
+      setExperiences(experienceDatabase.experienceList);
   }, []);
 
   return (
     <section className="timeline">
-      {experienceList?.map((experienceData) => {
+      {experiences.map((experienceInfo) => {
         return (
           <Experience
-            key={experienceData.company}
-            {...experienceData}
+            key={experienceInfo.company}
+            {...experienceInfo}
           ></Experience>
         );
       })}
