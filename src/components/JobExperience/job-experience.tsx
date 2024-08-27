@@ -24,7 +24,7 @@ import { getUserLocale } from "@/src/services/locale";
 const JobExperience = (props: ExperienceProperties) => {
   const t = useTranslations("Experience");
 
-  const [titleColor, setTitleColor] = useState("");
+  const [titleColor, setTitleColor] = useState("text-slate-200");
   const [locale, setLocale] = useState("");
 
   useEffect(() => {
@@ -36,7 +36,7 @@ const JobExperience = (props: ExperienceProperties) => {
   };
 
   const handleMouseLeave = () => {
-    setTitleColor("");
+    setTitleColor("text-slate-200");
   };
 
   const getDescriptionTranslationKey = (name: string, index: number) => {
@@ -65,36 +65,38 @@ const JobExperience = (props: ExperienceProperties) => {
         {props.title}
       </h3>
 
-      <p className="mb-4">
-        <Link className="me-1" href={props.companyURL} target="_blank">
+      <p className="mb-7 flex flex-col md:block">
+        <Link
+          className="mb-2 me-1 md:mb-0"
+          href={props.companyURL}
+          target="_blank"
+        >
           <span className="underline">{props.company}</span>
         </Link>
 
         {getExperienceTime(props.from, props.to)}
       </p>
 
-      <div className="flex flex-col gap-y-4">
+      <div className="flex flex-col gap-y-7">
         {props.projects.map((project, index) => (
           <div className="max-w-100" key={project.url}>
             {project.name && (
               <Link
                 href={project.url}
-                className="bounce-animation flex"
+                className="bounce-animation text-slate-200 mb-1 flex"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <h4 className="text-xl font-extrabold">{project.name}</h4>
                 <Image
-                  className="pt-1"
+                  className="ms-1 pb-1"
                   src={ExternalLink}
                   alt="External browser tab icon"
                 />
               </Link>
             )}
 
-            <p className="leading-7">
-              {t(getDescriptionTranslationKey(props.company, index))}
-            </p>
+            <p>{t(getDescriptionTranslationKey(props.company, index))}</p>
           </div>
         ))}
       </div>

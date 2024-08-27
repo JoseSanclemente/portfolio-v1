@@ -19,7 +19,7 @@ const HIGHLIGHTED_TAB = "About";
 
 // FIXME: Fix render of the pages
 const Tabs = ({ children }: TabsProperties) => {
-  const [activeTab, setActiveTab] = useState(-1);
+  const [activeTab, setActiveTab] = useState(0);
   const currentPath = usePathname();
 
   const t = useTranslations();

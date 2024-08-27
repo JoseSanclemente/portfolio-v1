@@ -8,15 +8,17 @@ const config: Config = {
     "./src/styles/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    colors: {
-      transparent: "transparent",
-      current: "currentColor",
-      red: "var(--red)",
-      green: "var(--green)",
-      purple: "var(--purple)",
-      gray: {
-        dark: "var(--grayDark)",
-        light: "var(--grayLight)",
+    extend: {
+      colors: {
+        transparent: "transparent",
+        current: "currentColor",
+        red: "var(--red)",
+        green: "var(--green)",
+        purple: "var(--purple)",
+        gray: {
+          dark: "var(--grayDark)",
+          light: "var(--grayLight)",
+        },
       },
     },
   },
