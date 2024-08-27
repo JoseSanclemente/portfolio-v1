@@ -1,7 +1,7 @@
 // i18
 import { useTranslations } from "next-intl";
 
-const About = () => {
+const Page = () => {
   const t = useTranslations("About");
 
   return (
@@ -35,4 +35,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default Page;

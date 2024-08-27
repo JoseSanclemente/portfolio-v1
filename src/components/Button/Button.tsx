@@ -7,10 +7,10 @@ import {
   GradientBorderClass,
   TailwindHoverBorderColor,
   TailwindThemeColors,
-} from "@/theme";
+} from "@/src/theme";
 
 // Types
-import { ButtonProperties } from "@/types/Button";
+import { ButtonProperties } from "@/src/types/Button";
 
 const Button = ({
   text,

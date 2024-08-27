@@ -1,6 +1,5 @@
-import { getUserLocale } from "@/services/locale";
-import { capitalizeString } from "./string";
-import { defaultLocale } from "@/types/Locale";
+import { capitalizeString } from "@/src/utils/string";
+import { defaultLocale } from "@/src/types/Locale";
 
 /**
  * Returns the translated month and year from a date
@@ -18,9 +17,6 @@ export const translateDate = (date: Date | string, locale?: string) => {
 
   const userLocale = locale ? locale : defaultLocale;
 
-  /* let locale;
-  getUserLocale().then((userLocale) => (locale = userLocale));
- */
   const year = date.getFullYear();
 
   const month = new Intl.DateTimeFormat(userLocale, { month: "long" }).format(

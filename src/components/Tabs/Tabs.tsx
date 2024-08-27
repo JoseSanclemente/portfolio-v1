@@ -7,31 +7,35 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 // Components
-import Button from "@/components/Button/Button";
+import Button from "@/src/components/Button/Button";
 
 // Types
-import { TabsProperties } from "@/types/Tabs";
+import { TabsProperties } from "@/src/types/Tabs";
 import { useTranslations } from "next-intl";
+
+import { TabsInfo } from "@/src/db/data";
 
 const HIGHLIGHTED_TAB = "About";
 
 // FIXME: Fix render of the pages
-const Tabs = ({ tabList, children }: TabsProperties) => {
+const Tabs = ({ children }: TabsProperties) => {
   const [activeTab, setActiveTab] = useState(-1);
   const currentPath = usePathname();
 
   const t = useTranslations();
 
   useEffect(() => {
-    const currentActiveTab = tabList.findIndex(
+    const currentActiveTab = TabsInfo.findIndex(
       (tab) => tab.path === currentPath,
     );
 
     setActiveTab(currentActiveTab);
-  }, [tabList, currentPath]);
+  }, [TabsInfo, currentPath]);
 
   const handleOnClick = (index: number, path: string) => {
     setActiveTab(index);
+
+    window.scrollTo({ top: 0, behavior: "instant" });
 
     redirect(path);
   };
@@ -43,7 +47,7 @@ const Tabs = ({ tabList, children }: TabsProperties) => {
   return (
     <div>
       <nav className="max-w-screen sticky top-0 z-10 -mx-6 flex flex-row justify-start gap-x-4 bg-gray-dark px-6 py-6 xl:pt-20">
-        {tabList.map((tab, index) => (
+        {TabsInfo.map((tab, index) => (
           <Link key={tab.path} href={`${tab.path}`}>
             <Button
               text={t(`Titles.${tab.title}`)}

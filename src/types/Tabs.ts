@@ -6,6 +6,5 @@ export type Tab = {
 };
 
 export type TabsProperties = {
-  tabList: Tab[];
   children?: ReactNode;
 };

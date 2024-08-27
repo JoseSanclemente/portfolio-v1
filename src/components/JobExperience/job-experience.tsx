@@ -4,22 +4,24 @@
 import Image from "next/image";
 import Link from "next/link";
 
-//React
+// React
 import { useEffect, useState } from "react";
 
 // Icons
-import ExternalLink from "@/../public/ExternalLink.svg";
+import ExternalLink from "@/public/ExternalLink.svg";
 
 // Types
-import { ExperienceProperties } from "@/types/Experience";
+import { ExperienceProperties } from "@/src/types/Experience";
 
 // Utils
-import { TailwindTextColor } from "@/theme";
-import { translateDate } from "@/utils/date";
-import { useTranslations } from "next-intl";
-import { getUserLocale } from "@/services/locale";
+import { TailwindTextColor } from "@/src/theme";
+import { translateDate } from "@/src/utils/date";
 
-const Experience = (props: ExperienceProperties) => {
+// i18n
+import { useTranslations } from "next-intl";
+import { getUserLocale } from "@/src/services/locale";
+
+const JobExperience = (props: ExperienceProperties) => {
   const t = useTranslations("Experience");
 
   const [titleColor, setTitleColor] = useState("");
@@ -100,4 +102,4 @@ const Experience = (props: ExperienceProperties) => {
   );
 };
 
-export default Experience;
+export default JobExperience;

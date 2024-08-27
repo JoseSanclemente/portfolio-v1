@@ -1,4 +1,4 @@
-import { TailwindThemeColors } from "@/theme";
+import { TailwindThemeColors } from "@/src/theme";
 
 export type ExperienceProperties = {
   title: string;

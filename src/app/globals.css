@@ -3,6 +3,11 @@
 @tailwind utilities;
 
 :root {
+  --red: #e61717;
+  --green: #bfd732;
+  --purple: #7749ff;
+  --grayDark: #1c1c1e;
+  --grayLight: #f2f2f7;
   --gradient: linear-gradient(to right, #40e0d0, #ff8c00, #ff0080);
   --timelineGradient: linear-gradient(
     0deg,
@@ -11,11 +16,6 @@
     96.5%,
     var(--grayDark) 90%
   );
-  --red: #e61717;
-  --green: #bfd732;
-  --purple: #7749ff;
-  --grayDark: #1c1c1e;
-  --grayLight: #f2f2f7;
 }
 
 .gradient {

@@ -3,9 +3,11 @@
     "About": "About",
     "Experience": "Experience"
   },
-  "Home": {
+  "Layout": {
     "frontend_developer": "Frontend Developer",
-    "passionated_about_people": "Passionate about people"
+    "passionated_about_people": "Passionate about people",
+    "bringing_tech_products": "Bringing tech products to life by telling stories is my passion! <3",
+    "made_with": "Made with "
   },
   "About": {
     "during_my_computer_science": "During my Computer Science career, I always felt that all my classmates had at least one favorite class, but I was already halfway through my degree and couldn&apos;t find anything that motivated me to continue at the university. In 2018, while studying for final exams, someone handed me a small piece of paper advertising a developer position for a new project, but I chose to ignore it.",
