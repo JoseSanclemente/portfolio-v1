@@ -12,6 +12,6 @@ export type ExperienceProperties = {
 
 export type ProjectProperties = {
   name: string;
-  description: string;
+  skills: string[];
   url: string;
 };

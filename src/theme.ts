@@ -8,14 +8,6 @@ export enum TailwindThemeColors {
 
 type ColorObject = Record<TailwindThemeColors, string>;
 
-export const TailwindTextColor: ColorObject = {
-  [TailwindThemeColors.Red]: "text-red",
-  [TailwindThemeColors.Green]: "text-green",
-  [TailwindThemeColors.Purple]: "text-purple",
-  [TailwindThemeColors.GrayDark]: "text-gray-dark",
-  [TailwindThemeColors.GrayLight]: "text-gray-light",
-};
-
 export const TailwindHoverBorderColor: ColorObject = {
   [TailwindThemeColors.Red]: "hover:border-red",
   [TailwindThemeColors.Green]: "hover:border-green",

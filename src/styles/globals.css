@@ -13,8 +13,16 @@
     0deg,
     var(--grayDark),
     var(--grayLight),
-    96%,
-    var(--grayDark) 90%
+    97.7%,
+    var(--grayDark) 0%
+  );
+
+  --timelineGradientMobile: linear-gradient(
+    0deg,
+    var(--grayDark),
+    var(--grayLight),
+    98.5%,
+    var(--grayDark) 0%
   );
 }
 
@@ -34,6 +42,15 @@
   width: 100%;
   height: 2px;
   background: var(--gradient);
+}
+
+.gradient--border-show {
+  border: solid 1px transparent;
+  background-image: linear-gradient(var(--grayDark), var(--grayDark)),
+    var(--gradient);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  color: var(--grayLight);
 }
 
 .gradient--border:hover {
@@ -78,4 +95,11 @@
 
 .timeline-event:first-child::before {
   background-color: var(--grayLight);
+}
+
+@media (max-width: 420px) {
+  .timeline {
+    background-image: linear-gradient(var(--grayDark), var(--grayDark)),
+      var(--timelineGradientMobile);
+  }
 }

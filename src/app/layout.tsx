@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
 // Styles
-import "@/src/app/globals.css";
+import "@/src/styles/globals.css";
 import "@/src/styles/animations.css";
 
 // i18n
@@ -11,10 +11,10 @@ import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getMessages } from "next-intl/server";
 
 // Components
-import Tabs from "@/src/components/Tabs/Tabs";
-import Footer from "@/src/components/Layout/footer";
-import Header from "@/src/components/Layout/header";
-import CursorEffect from "../components/CursorEffect/cursor-effect";
+import Tabs from "@/src/components/layout/tabs";
+import Footer from "@/src/components/layout/footer";
+import Header from "@/src/components/layout/header";
+import CursorEffect from "@/src/components/cursor-effect";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -35,7 +35,7 @@ export default async function RootLayout({
   return (
     <html lang={locale}>
       <body
-        className={`${inter.className} text-slate-400 overflow-y-scroll scroll-smooth bg-gray-dark text-sm antialiased md:text-base md:leading-loose`}
+        className={`${inter.className} select-none overflow-y-scroll scroll-smooth bg-gray-dark text-sm text-slate-400 antialiased md:text-base md:leading-loose`}
       >
         <CursorEffect />
 

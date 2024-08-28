@@ -17,14 +17,12 @@ export const ExperienceInfo: ExperienceProperties[] = [
     projects: [
       {
         name: "CAT",
-        description:
-          "Build new landing pages tailored for various marketing campaigns to increase engagement and conversion rates. Develop modular templates for 20 types of banners, streamlining production for CAT's dealers. Organize and deliver web components tailored to each marketing campaign for 10 clients, ensuring consistency and effectiveness across all platforms.",
+        skills: ["HTML", "CSS", "Accessibility ", "Responsive Design"],
         url: "https://parts.cat.com/es/catcorp",
       },
       {
         name: "DFIN",
-        description:
-          "Engineer a new feature for the text editor product that tracks changes in the document, enhancing collaboration and version control. Maintain and test the SlateJS library, ensuring stability and performance for the text editor. Optimize the web application built with React and TypeScript to improve speed and user experience. Deliver new features using LaunchDarkly feature flags for controlled and targeted deployment.",
+        skills: ["React.js", "TypeScript", "HTML", "CSS", "LauchDarkly"],
         url: "https://www.dfinsolutions.com/",
       },
     ],
@@ -39,8 +37,7 @@ export const ExperienceInfo: ExperienceProperties[] = [
     projects: [
       {
         name: "Pvolve",
-        description:
-          "Optimize React components to enhance responsiveness and reduce loading times. Lead the team in planning and executing the next iterations of the product. Integrate Braze and Segment into the web app to effectively track and centralize user data and leads. Develop innovative user interfaces using Next.js. Implement and deliver new features with Optimizely feature flags for controlled deployment and testing.",
+        skills: ["Next.js", "TypeScript", "SASS", "Contentful", "Optimizely"],
         url: "https://www.pvolve.com/",
       },
     ],
@@ -55,8 +52,7 @@ export const ExperienceInfo: ExperienceProperties[] = [
     projects: [
       {
         name: "",
-        description:
-          "Design and implement a scalable backend architecture using Golang and AWS. Develop a web application with Vue 2 and TypeScript. Lead the team in managing product requirements. Conduct user research to inform UX design and integrate the company's design system into the product.",
+        skills: ["Vue.js", "AWS", "Golang", "Terraform", "Storybook"],
         url: "",
       },
     ],
