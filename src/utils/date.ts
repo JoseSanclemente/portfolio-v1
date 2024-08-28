@@ -1,12 +1,13 @@
 import { capitalizeString } from "@/src/utils/string";
 import { defaultLocale } from "@/src/types/Locale";
+import { useFormatter } from "next-intl";
 
 /**
  * Returns the translated month and year from a date
  * @param date
  * @returns string
  */
-export const translateDate = (date: Date | string, locale?: string) => {
+export const translateDate = (date: Date | string, format: any) => {
   if (!date) {
     return "";
   }
@@ -15,14 +16,12 @@ export const translateDate = (date: Date | string, locale?: string) => {
     return date;
   }
 
-  const userLocale = locale ? locale : defaultLocale;
+  const stringDate = format.dateTime(date, { year: "numeric", month: "long" });
 
-  const year = date.getFullYear();
+  // This is for Spanish formatting
+  const splitDate = stringDate.split("de");
 
-  const month = new Intl.DateTimeFormat(userLocale, { month: "long" }).format(
-    date,
-  );
-  const capitalizedMonth = capitalizeString(month);
+  if (splitDate.length > 1) return capitalizeString(splitDate.join(" "));
 
-  return `${capitalizedMonth} ${year}`;
+  return stringDate;
 };

@@ -12,9 +12,10 @@ import { getLocale, getMessages } from "next-intl/server";
 
 // Components
 import Tabs from "@/src/components/layout/tabs";
-import Footer from "@/src/components/layout/footer";
+import SocialMedia from "@/src/components/layout/social-media";
 import Header from "@/src/components/layout/header";
 import CursorEffect from "@/src/components/cursor-effect";
+import Footer from "@/src/components/layout/footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -44,13 +45,15 @@ export default async function RootLayout({
             <div className="w-100 top-0 flex max-h-screen flex-col justify-between gap-y-8 lg:sticky lg:w-1/2 lg:py-24">
               <Header />
 
-              <Footer />
+              <SocialMedia />
             </div>
 
             <main className="w-100 lg:w-1/2 lg:py-24">
               <Tabs>{children}</Tabs>
             </main>
           </div>
+
+          <Footer />
         </NextIntlClientProvider>
       </body>
     </html>

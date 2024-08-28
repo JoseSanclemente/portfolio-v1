@@ -1,5 +1,7 @@
 // i18
 import { useTranslations } from "next-intl";
+import Image from "next/image";
+import truoraPaper from "@/public/truora_paper.webp";
 
 const Page = () => {
   const t = useTranslations("About");
@@ -24,11 +26,17 @@ const Page = () => {
       <br />
       <p>
         {t("so_I_sent_an_email")}
-        <span className="gradient font-bold">{t("my_life_changed")}</span>.
+        <span className="gradient font-bold">{t("my_life_changed")}</span>
         {t("I_started_working")}
         <span className="gradient font-bold">{t("projects_aims_to")}</span>
         {t("one_step")}
       </p>
+      <br />
+      <Image
+        src={truoraPaper}
+        alt="An image promoting a software developer job opening for students at Universidad del Valle"
+        className="rounded-lg"
+      />
       <br />
       <p>{t("I_enjoy")}</p>
     </section>

@@ -17,7 +17,7 @@ export const ExperienceInfo: ExperienceProperties[] = [
     projects: [
       {
         name: "CAT",
-        skills: ["HTML", "CSS", "Accessibility ", "Responsive Design"],
+        skills: ["TypeScript", "HTML", "CSS", "CMS"],
         url: "https://parts.cat.com/es/catcorp",
       },
       {
@@ -37,7 +37,16 @@ export const ExperienceInfo: ExperienceProperties[] = [
     projects: [
       {
         name: "Pvolve",
-        skills: ["Next.js", "TypeScript", "SASS", "Contentful", "Optimizely"],
+        skills: [
+          "Next.js",
+          "React.js",
+          "TypeScript",
+          "SASS",
+          "Contentful",
+          "Optimizely",
+          "Segment",
+          "Braze",
+        ],
         url: "https://www.pvolve.com/",
       },
     ],
@@ -52,7 +61,14 @@ export const ExperienceInfo: ExperienceProperties[] = [
     projects: [
       {
         name: "",
-        skills: ["Vue.js", "AWS", "Golang", "Terraform", "Storybook"],
+        skills: [
+          "Vue.js",
+          "TypeScript",
+          "AWS",
+          "Golang",
+          "Terraform",
+          "Storybook",
+        ],
         url: "",
       },
     ],

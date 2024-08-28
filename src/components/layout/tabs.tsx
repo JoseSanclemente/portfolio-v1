@@ -11,6 +11,7 @@ import { TabsProperties } from "@/src/types/Tabs";
 import { useTranslations } from "next-intl";
 
 import { TabsInfo } from "@/src/db/data";
+import LocaleDropdown from "./locale-dropdown";
 
 const HIGHLIGHTED_TAB = "About";
 
@@ -29,17 +30,20 @@ const Tabs = ({ children }: TabsProperties) => {
 
   return (
     <div>
-      <nav className="max-w-screen sticky top-0 z-10 -mx-6 flex flex-row justify-start gap-x-4 bg-gray-dark px-6 py-6 xl:pt-20">
-        {TabsInfo.map((tab) => (
-          <Link key={tab.path} href={`${tab.path}`}>
-            <Button
-              text={t(`Titles.${tab.title}`)}
-              borderGradient={tab.title === HIGHLIGHTED_TAB}
-              onClick={() => handleOnClick(tab.path)}
-              className={`${isActiveTab(tab.path)} border border-slate-400 transition-colors`}
-            />
-          </Link>
-        ))}
+      <nav className="max-w-screen sticky top-0 z-10 -mx-6 flex flex-col items-start justify-start gap-y-6 bg-gray-dark px-6 py-6 sm:flex-row sm:items-center sm:gap-y-0 xl:pt-20">
+        <div className="flex flex-1 flex-row gap-x-4">
+          {TabsInfo.map((tab) => (
+            <Link key={tab.path} href={`${tab.path}`}>
+              <Button
+                text={t(`Titles.${tab.title}`)}
+                borderGradient={tab.title === HIGHLIGHTED_TAB}
+                onClick={() => handleOnClick(tab.path)}
+                className={`${isActiveTab(tab.path)} border border-slate-400 transition-colors`}
+              />
+            </Link>
+          ))}
+        </div>
+        <LocaleDropdown />
       </nav>
 
       {

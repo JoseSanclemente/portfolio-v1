@@ -4,9 +4,6 @@
 import Image from "next/image";
 import Link from "next/link";
 
-// React
-import { useEffect, useState } from "react";
-
 // Components
 import Breadcrumbs from "./breadcrumbs";
 
@@ -20,17 +17,11 @@ import { ExperienceProperties } from "@/src/types/Experience";
 import { translateDate } from "@/src/utils/date";
 
 // i18n
-import { useTranslations } from "next-intl";
-import { getUserLocale } from "@/src/services/locale";
+import { useFormatter, useTranslations } from "next-intl";
 
 const JobExperience = (props: ExperienceProperties) => {
   const t = useTranslations("Experience");
-
-  const [locale, setLocale] = useState("");
-
-  useEffect(() => {
-    getUserLocale().then((userLocale) => setLocale(userLocale));
-  }, []);
+  const format = useFormatter();
 
   const getDescriptionTranslationKey = (name: string, index: number) => {
     const descriptionKey = `desc_${index}`;
@@ -40,10 +31,10 @@ const JobExperience = (props: ExperienceProperties) => {
 
   const getExperienceTime = (from: Date, to: Date | string) => {
     if (typeof to === "string" && to !== "") {
-      return `(${translateDate(from, locale)} - ${t("present")})`;
+      return `(${translateDate(from, format)} - ${t("present")})`;
     }
 
-    return `(${translateDate(from, locale)} - ${translateDate(to, locale)})`;
+    return `(${translateDate(from, format)} - ${translateDate(to, format)})`;
   };
 
   return (
