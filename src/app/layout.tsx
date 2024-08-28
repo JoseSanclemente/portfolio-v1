@@ -35,7 +35,7 @@ export default async function RootLayout({
   return (
     <html lang={locale}>
       <body
-        className={`${inter.className} select-none overflow-y-scroll scroll-smooth bg-gray-dark text-sm text-slate-400 antialiased md:text-base md:leading-loose`}
+        className={`${inter.className} select-none overflow-y-scroll scroll-smooth bg-gray-dark text-base text-slate-400 antialiased md:leading-loose`}
       >
         <CursorEffect />
 

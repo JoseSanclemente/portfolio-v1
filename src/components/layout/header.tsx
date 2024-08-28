@@ -13,7 +13,7 @@ export default async function Header() {
         {t("frontend_developer")} &<br />
         <span className="gradient">{t("passionated_about_people")}</span>
       </h2>
-      <p className="text-sm md:text-base">{t("bringing_tech_products")}</p>
+      <p>{t("bringing_tech_products")}</p>
     </header>
   );
 }
