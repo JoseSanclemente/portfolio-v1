@@ -36,7 +36,7 @@ const Tabs = ({ children }: TabsProperties) => {
               text={t(`Titles.${tab.title}`)}
               borderGradient={tab.title === HIGHLIGHTED_TAB}
               onClick={() => handleOnClick(tab.path)}
-              className={isActiveTab(tab.path)}
+              className={`${isActiveTab(tab.path)} border border-slate-400 transition-colors`}
             />
           </Link>
         ))}
