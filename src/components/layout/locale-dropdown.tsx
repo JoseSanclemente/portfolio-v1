@@ -1,10 +1,11 @@
 import { getUserLocale, setUserLocale } from "@/src/services/locale";
-import { defaultLocale, Locale } from "@/src/types/Locale";
+import { Locale } from "@/src/types/Locale";
 import { ChangeEvent, useEffect, useState, useTransition } from "react";
+
+const allowedLocales = ["ES", "EN"];
 
 export default function LocaleDropdown() {
   const [_, startTransition] = useTransition();
-
   const [locale, setLocale] = useState("");
 
   useEffect(() => {
@@ -26,15 +27,14 @@ export default function LocaleDropdown() {
       value={locale}
       onChange={handleSelection}
       name="locale"
-      className="rounded-md bg-transparent p-1 hover:bg-slate-700"
+      className="rounded-md bg-transparent p-1 transition-colors hover:bg-slate-700"
       aria-label="Language"
     >
-      <option className="bg-slate-800 hover:bg-slate-700" value="es">
-        ES
-      </option>
-      <option className="bg-slate-800" value="en">
-        EN
-      </option>
+      {allowedLocales.map((item) => (
+        <option key={item} className="bg-slate-800" value={item.toLowerCase()}>
+          {item}
+        </option>
+      ))}
     </select>
   );
 }

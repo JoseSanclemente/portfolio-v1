@@ -1,6 +1,6 @@
 "use client";
 // Next
-import { redirect, usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
 
 // Components
@@ -17,11 +17,12 @@ const HIGHLIGHTED_TAB = "About";
 
 const Tabs = ({ children }: TabsProperties) => {
   const currentPath = usePathname();
+  const router = useRouter();
 
   const t = useTranslations();
 
   const handleOnClick = (tabPath: string) => {
-    redirect(tabPath);
+    router.push(tabPath);
   };
 
   const isActiveTab = (tabPath: string) => {

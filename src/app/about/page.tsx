@@ -35,7 +35,6 @@ const Page = () => {
       <Image
         src={truoraPaper}
         alt="An image promoting a software developer job opening for students at Universidad del Valle"
-        className="rounded-lg"
       />
       <br />
       <p>{t("I_enjoy")}</p>

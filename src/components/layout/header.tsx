@@ -2,6 +2,7 @@ import { getTranslations } from "next-intl/server";
 
 export default async function Header() {
   const t = await getTranslations("Layout");
+
   return (
     <header>
       <h1 className="mb-6 text-4xl font-extrabold lg:text-6xl">
