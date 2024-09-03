@@ -47,11 +47,7 @@ const Tabs = ({ children }: TabsProperties) => {
         <LocaleDropdown />
       </nav>
 
-      {
-        <div key={currentPath} className="fade-animation">
-          {children}
-        </div>
-      }
+      {<div key={currentPath}>{children}</div>}
     </div>
   );
 };

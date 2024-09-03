@@ -1,13 +1,16 @@
 .fade-animation {
-  animation: fade-in 1.5s;
+  opacity: 0;
+  animation: fade-in 1.5s forwards;
 }
 
 @keyframes fade-in {
   0%,
   10% {
+    transform: translateY(2%);
     opacity: 0;
   }
   100% {
+    transform: translateY(0%);
     opacity: 1;
   }
 }

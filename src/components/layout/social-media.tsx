@@ -6,7 +6,7 @@ import LinkedInLogo from "@/public/LinkedIn.svg";
 import InstagramLogo from "@/public/Instagram.svg";
 import FigmaLogo from "@/public/Figma.svg";
 
-export default async function SocialMedia() {
+export default function SocialMedia() {
   return (
     <div className="mb-12 mt-6 flex gap-x-6 md:mt-0" aria-label="Social media">
       <Link

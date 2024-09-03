@@ -17,6 +17,11 @@ import Header from "@/src/components/layout/header";
 import CursorEffect from "@/src/components/cursor-effect";
 import Footer from "@/src/components/layout/footer";
 
+import { gsap } from "gsap";
+import { useGSAP } from "@gsap/react";
+
+gsap.registerPlugin(useGSAP);
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
