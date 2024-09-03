@@ -63,7 +63,11 @@ const JobExperience = (props: ExperienceProperties) => {
 
       <div className="flex flex-col gap-y-10">
         {props.projects.map((project, index) => (
-          <div className="max-w-100" key={project.url}>
+          <div
+            className="fade-animation max-w-100"
+            key={project.url}
+            style={{ animationDelay: `${index * 0.5}s` }}
+          >
             {project.name && (
               <Link
                 href={project.url}
