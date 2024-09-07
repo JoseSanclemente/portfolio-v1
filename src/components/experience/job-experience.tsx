@@ -18,6 +18,7 @@ import { translateDate } from "@/src/utils/date";
 
 // i18n
 import { useFormatter, useTranslations } from "next-intl";
+import { getAnimationDelay } from "@/src/utils/animation";
 
 const JobExperience = (props: ExperienceProperties) => {
   const t = useTranslations("Experience");
@@ -66,7 +67,7 @@ const JobExperience = (props: ExperienceProperties) => {
           <div
             className="fade-animation max-w-100"
             key={project.url}
-            style={{ animationDelay: `${index * 0.5}s` }}
+            style={{ animationDelay: getAnimationDelay(index) }}
           >
             {project.name && (
               <Link
