@@ -13,8 +13,6 @@ import { useTranslations } from "next-intl";
 import { TabsInfo } from "@/src/db/data";
 import LocaleDropdown from "./locale-dropdown";
 
-const HIGHLIGHTED_TAB = "About";
-
 const Tabs = ({ children }: TabsProperties) => {
   const currentPath = usePathname();
   const router = useRouter();
@@ -37,7 +35,6 @@ const Tabs = ({ children }: TabsProperties) => {
             <Link key={tab.path} href={`${tab.path}`}>
               <Button
                 text={t(`Titles.${tab.title}`)}
-                borderGradient={tab.title === HIGHLIGHTED_TAB}
                 onClick={() => handleOnClick(tab.path)}
                 className={`${isActiveTab(tab.path)} border border-slate-400 transition-colors`}
               />
