@@ -30,7 +30,7 @@ export default function SocialMedia() {
         <Image src={InstagramLogo} alt="Instagram logo" width={32} />
       </Link>
       <Link
-        href="https://www.figma.com/@josesanclemente"
+        href="https://www.figma.com/@panqueso"
         target="_blank"
         rel="noopener noreferrer"
         className="opacity-100 transition-opacity duration-300 hover:opacity-100 lg:opacity-30"
