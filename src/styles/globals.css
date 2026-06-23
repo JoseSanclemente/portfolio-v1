@@ -81,6 +81,7 @@
   color: var(--grayDark);
   background-color: var(--grayLight);
   background-image: none;
+  font-weight: bold;
 }
 
 .timeline {
