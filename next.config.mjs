@@ -2,13 +2,15 @@ import createNextIntlPlugin from "next-intl/plugin";
 
 const withNextIntl = createNextIntlPlugin("./src/i18n.ts");
 
+const isDev = process.env.NODE_ENV === "development";
+
 const csp = [
   "default-src 'self'",
   "script-src 'self' 'unsafe-inline' 'unsafe-eval'",
   "style-src 'self' 'unsafe-inline'",
   "img-src 'self' data: blob:",
   "font-src 'self'",
-  "connect-src 'self'",
+  isDev ? "connect-src 'self' ws://localhost:*" : "connect-src 'self'",
   "frame-ancestors 'none'",
 ].join("; ");
 

@@ -37,11 +37,13 @@
 }
 
 .gradient {
-  background: var(--gradient);
+  background: linear-gradient(to right, #40e0d0, #ff8c00, #ff0080, #40e0d0);
+  background-size: 200% auto;
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   position: relative;
+  animation: gradient-flow 4s linear infinite;
 }
 
 .gradient--underline::after {
