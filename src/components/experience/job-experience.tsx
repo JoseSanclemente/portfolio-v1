@@ -41,14 +41,16 @@ const JobExperience = (props: ExperienceProperties) => {
   return (
     <div className={`timeline-event max-w-100 pl-6`}>
       <h3
-        className={
-          "mb-2 text-2xl font-extrabold text-slate-200 transition-colors duration-200"
-        }
+        className="fade-animation mb-2 text-2xl font-extrabold text-slate-200 transition-colors duration-200"
+        style={{ animationDelay: getAnimationDelay(0) }}
       >
         {props.title}
       </h3>
 
-      <p className="mb-5 flex flex-col md:mb-7 md:block">
+      <p
+        className="fade-animation mb-5 flex flex-col md:mb-7 md:block"
+        style={{ animationDelay: getAnimationDelay(1) }}
+      >
         <Link
           className="me-1 mb-2 md:mb-0"
           href={props.companyURL}
@@ -67,7 +69,7 @@ const JobExperience = (props: ExperienceProperties) => {
           <div
             className="fade-animation max-w-100"
             key={project.url}
-            style={{ animationDelay: getAnimationDelay(index) }}
+            style={{ animationDelay: getAnimationDelay(index + 2) }}
           >
             {project.name && (
               <Link

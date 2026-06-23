@@ -1,6 +1,6 @@
 // Next
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Boldonse, Space_Grotesk } from "next/font/google";
 
 // Styles
 import "@/src/styles/globals.css";
@@ -17,7 +17,16 @@ import Header from "@/src/components/layout/header";
 import CursorEffect from "@/src/components/cursor-effect";
 import Footer from "@/src/components/layout/footer";
 
-const inter = Inter({ subsets: ["latin"] });
+const boldonse = Boldonse({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-boldonse",
+  adjustFontFallback: false,
+});
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-space-grotesk",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.panqueso.dev"),
@@ -52,13 +61,13 @@ export default async function RootLayout({
   return (
     <html lang={locale}>
       <body
-        className={`${inter.className} select-none overflow-y-scroll scroll-smooth bg-gray-dark text-base text-slate-400 antialiased md:leading-loose`}
+        className={`${boldonse.variable} ${spaceGrotesk.variable} ${spaceGrotesk.className} bg-gray-dark overflow-y-scroll scroll-smooth text-base text-slate-400 antialiased select-none md:leading-loose`}
       >
         <CursorEffect />
 
         <NextIntlClientProvider messages={messages}>
           <div className="mx-auto flex min-h-screen max-w-screen-xl flex-col gap-x-14 px-6 py-12 md:px-12 md:py-20 lg:flex-row lg:py-0 xl:px-0">
-            <div className="w-100 top-0 flex max-h-screen flex-col justify-between gap-y-8 lg:sticky lg:w-1/2 lg:py-24">
+            <div className="top-0 flex max-h-screen w-100 flex-col justify-between gap-y-8 lg:sticky lg:w-1/2 lg:py-24">
               <Header />
 
               <SocialMedia />
