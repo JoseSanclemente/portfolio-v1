@@ -5,7 +5,7 @@ Personal portfolio website built with Next.js. Showcases work experience, projec
 [![Live Site](https://img.shields.io/badge/Live-panqueso.dev-black?logo=vercel)](https://www.panqueso.dev)
 ![Next.js](https://img.shields.io/badge/Next.js-16-black?logo=next.js)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?logo=typescript)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3-38bdf8?logo=tailwindcss)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-38bdf8?logo=tailwindcss)
 ![next-intl](https://img.shields.io/badge/i18n-next--intl-purple)
 
 ## Features
@@ -23,24 +23,24 @@ Personal portfolio website built with Next.js. Showcases work experience, projec
 |------------|--------------------------|
 | Framework  | Next.js 16 (App Router)  |
 | Language   | TypeScript 5             |
-| Styling    | Tailwind CSS 3           |
+| Styling    | Tailwind CSS 4           |
 | i18n       | next-intl 4              |
 | Analytics  | @vercel/speed-insights   |
 
 ## Getting Started
 
 ```bash
-npm install
-npm run dev
+pnpm install
+pnpm dev
 # → http://localhost:3000
 ```
 
 | Script        | Description              |
 |---------------|--------------------------|
-| `npm run dev` | Start development server |
-| `npm run build` | Build for production   |
-| `npm start`   | Start production server  |
-| `npm run lint` | Run ESLint              |
+| `pnpm dev`    | Start development server |
+| `pnpm build`  | Build for production     |
+| `pnpm start`  | Start production server  |
+| `pnpm lint`   | Run ESLint               |
 
 ## Project Structure
 
