@@ -1,0 +1,11 @@
+version: 2
+updates:
+  - package-ecosystem: "npm" 
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    # Optional but highly recommended: Group updates to avoid PR spam
+    groups:
+      all-dependencies:
+        patterns:
+          - "*"
