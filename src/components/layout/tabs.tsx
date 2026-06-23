@@ -29,7 +29,7 @@ const Tabs = ({ children }: TabsProperties) => {
 
   return (
     <div>
-      <nav className="max-w-screen sticky top-0 z-10 -mx-6 flex flex-col items-start justify-start gap-y-6 bg-gray-dark px-6 py-6 sm:flex-row sm:items-center sm:gap-y-0 xl:pt-20">
+      <nav className="relative top-0 z-10 -mx-6 flex max-w-screen flex-col items-start justify-start gap-y-6 px-6 py-6 sm:flex-row sm:items-center sm:gap-y-0 xl:pt-20">
         <div className="flex flex-1 flex-row gap-x-4">
           {TabsInfo.map((tab) => (
             <Link key={tab.path} href={`${tab.path}`}>

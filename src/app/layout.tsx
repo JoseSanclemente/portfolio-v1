@@ -14,7 +14,7 @@ import { getLocale, getMessages } from "next-intl/server";
 import Tabs from "@/src/components/layout/tabs";
 import SocialMedia from "@/src/components/layout/social-media";
 import Header from "@/src/components/layout/header";
-import CursorEffect from "@/src/components/cursor-effect";
+import AsciiWater from "@/src/components/ascii-water";
 import Footer from "@/src/components/layout/footer";
 
 const boldonse = Boldonse({
@@ -63,7 +63,7 @@ export default async function RootLayout({
       <body
         className={`${boldonse.variable} ${spaceGrotesk.variable} ${spaceGrotesk.className} bg-gray-dark overflow-y-scroll scroll-smooth text-base text-slate-400 antialiased select-none md:leading-loose`}
       >
-        <CursorEffect />
+        <AsciiWater />
 
         <NextIntlClientProvider messages={messages}>
           <div className="mx-auto flex min-h-screen max-w-screen-xl flex-col gap-x-14 px-6 py-12 md:px-12 md:py-20 lg:flex-row lg:py-0 xl:px-0">
