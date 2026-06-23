@@ -54,8 +54,8 @@
 
 .gradient--border-show {
   border: solid 1px transparent;
-  background-image: linear-gradient(var(--grayDark), var(--grayDark)),
-    var(--gradient);
+  background-image:
+    linear-gradient(var(--grayDark), var(--grayDark)), var(--gradient);
   background-origin: border-box;
   background-clip: padding-box, border-box;
   color: var(--grayLight);
@@ -63,8 +63,8 @@
 
 .gradient--border:hover {
   border: solid 1px transparent;
-  background-image: linear-gradient(var(--grayDark), var(--grayDark)),
-    var(--gradient);
+  background-image:
+    linear-gradient(var(--grayDark), var(--grayDark)), var(--gradient);
   background-origin: border-box;
   background-clip: padding-box, border-box;
   color: var(--grayLight);
@@ -80,18 +80,27 @@
 }
 
 .timeline {
-  background-image: linear-gradient(var(--grayDark), var(--grayDark)),
-    var(--timelineGradient);
-  border-left: solid 1px transparent;
-  background-origin: border-box;
-  background-clip: padding-box, border-box;
+  position: relative;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: calc(2rem + 7.5px);
+  width: 1px;
+  height: 100%;
+  background: linear-gradient(to bottom, var(--grayLight), transparent);
+  transform: scaleY(0);
+  transform-origin: top;
+  animation: timeline-grow 14s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .timeline-event::before {
   position: relative;
   display: inline-block;
   left: -2rem;
-  top: 1.8rem;
+  top: 2rem;
   content: "";
   width: 15px;
   height: 15px;
@@ -103,11 +112,4 @@
 
 .timeline-event:first-child::before {
   background-color: var(--grayLight);
-}
-
-@media (max-width: 420px) {
-  .timeline {
-    background-image: linear-gradient(var(--grayDark), var(--grayDark)),
-      var(--timelineGradientMobile);
-  }
 }
