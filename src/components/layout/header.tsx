@@ -4,7 +4,7 @@ export default async function Header() {
   const t = await getTranslations("Layout");
 
   return (
-    <header>
+    <header className="relative z-10">
       <h1 className="font-boldonse mb-6 text-4xl font-extrabold lg:text-6xl">
         Jose
         <br />
