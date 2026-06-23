@@ -1,6 +1,6 @@
 export type ButtonProperties = {
   text: string;
   borderGradient?: boolean;
-  onClick?: any;
+  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
   className?: string;
 };

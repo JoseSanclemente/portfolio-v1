@@ -50,7 +50,7 @@ const JobExperience = (props: ExperienceProperties) => {
 
       <p className="mb-5 flex flex-col md:mb-7 md:block">
         <Link
-          className="mb-2 me-1 md:mb-0"
+          className="me-1 mb-2 md:mb-0"
           href={props.companyURL}
           target="_blank"
         >
@@ -81,6 +81,8 @@ const JobExperience = (props: ExperienceProperties) => {
                   className="ms-1 pb-1"
                   src={ExternalLink}
                   alt="External browser tab icon"
+                  width={24}
+                  height={24}
                 />
               </Link>
             )}

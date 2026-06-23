@@ -1,7 +1,4 @@
 "use client";
-// React
-import { useEffect, useState } from "react";
-
 // Utils
 import {
   GradientBorderClass,
@@ -18,13 +15,9 @@ const Button = ({
   onClick,
   className,
 }: ButtonProperties) => {
-  const [borderClass, setBorderClass] = useState("");
-
-  useEffect(() => {
-    borderGradient
-      ? setBorderClass(GradientBorderClass)
-      : setBorderClass(TailwindHoverBorderColor[TailwindThemeColors.GrayLight]);
-  }, [borderGradient]);
+  const borderClass = borderGradient
+    ? GradientBorderClass
+    : TailwindHoverBorderColor[TailwindThemeColors.GrayLight];
 
   return (
     <button

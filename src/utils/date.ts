@@ -7,7 +7,7 @@ import { useFormatter } from "next-intl";
  * @param date
  * @returns string
  */
-export const translateDate = (date: Date | string, format: any) => {
+export const translateDate = (date: Date | string, format: ReturnType<typeof useFormatter>) => {
   if (!date) {
     return "";
   }

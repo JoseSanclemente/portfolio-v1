@@ -1,6 +1,14 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@source "../../theme.ts";
+
+@theme {
+  --color-red: var(--red);
+  --color-green: var(--green);
+  --color-purple: var(--purple);
+  --color-gray-dark: var(--grayDark);
+  --color-gray-light: var(--grayLight);
+}
 
 :root {
   --red: #e61717;

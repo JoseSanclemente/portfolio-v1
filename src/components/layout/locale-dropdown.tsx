@@ -5,7 +5,7 @@ import { ChangeEvent, useEffect, useState, useTransition } from "react";
 const allowedLocales = ["ES", "EN"];
 
 export default function LocaleDropdown() {
-  const [_, startTransition] = useTransition();
+  const [isPending, startTransition] = useTransition();
   const [locale, setLocale] = useState("");
 
   useEffect(() => {

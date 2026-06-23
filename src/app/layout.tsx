@@ -20,9 +20,25 @@ import Footer from "@/src/components/layout/footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.panqueso.dev"),
   title: "Jose Sanclemente",
   description:
     "Bringing tech products to life by telling stories is my passion! <3",
+  openGraph: {
+    title: "Jose Sanclemente",
+    description:
+      "Bringing tech products to life by telling stories is my passion! <3",
+    url: "https://www.panqueso.dev",
+    siteName: "Jose Sanclemente — Portfolio",
+    type: "website",
+  },
+  alternates: {
+    canonical: "https://www.panqueso.dev",
+    languages: {
+      en: "https://www.panqueso.dev",
+      es: "https://www.panqueso.dev",
+    },
+  },
 };
 
 export default async function RootLayout({
