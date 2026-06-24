@@ -38,18 +38,20 @@ const JobExperience = (props: ExperienceProperties) => {
     return `(${translateDate(from, format)} - ${translateDate(to, format)})`;
   };
 
+  const BASE_DELAY = 2;
+
   return (
-    <div className={`timeline-event max-w-100 pl-6`}>
+    <div className={`timeline-event pl-6`}>
       <h3
         className="fade-animation mb-2 text-2xl font-extrabold text-slate-200 transition-colors duration-200"
-        style={{ animationDelay: getAnimationDelay(0) }}
+        style={{ animationDelay: getAnimationDelay(BASE_DELAY) }}
       >
         {props.title}
       </h3>
 
       <p
         className="fade-animation mb-5 flex flex-col md:mb-7 md:block"
-        style={{ animationDelay: getAnimationDelay(1) }}
+        style={{ animationDelay: getAnimationDelay(BASE_DELAY + 1) }}
       >
         <Link
           className="me-1 mb-2 md:mb-0"
@@ -65,34 +67,44 @@ const JobExperience = (props: ExperienceProperties) => {
       </p>
 
       <div className="flex flex-col gap-y-10">
-        {props.projects.map((project, index) => (
-          <div
-            className="fade-animation max-w-100"
-            key={project.url}
-            style={{ animationDelay: getAnimationDelay(index + 2) }}
-          >
-            {project.name && (
-              <Link
-                href={project.url}
-                className="bounce-animation mb-1 flex text-slate-200"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <h4 className="text-xl font-extrabold">{project.name}</h4>
-                <Image
-                  className="ms-1 pb-1"
-                  src={ExternalLink}
-                  alt="External browser tab icon"
-                  width={24}
-                  height={24}
-                />
-              </Link>
-            )}
+        {props.projects.map((project, projectIndex) => {
+          const projectBase = BASE_DELAY + 2 + projectIndex * 3;
+          return (
+            <div key={project.url}>
+              {project.name && (
+                <Link
+                  href={project.url}
+                  className="bounce-animation fade-animation mb-1 flex text-slate-200"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ animationDelay: getAnimationDelay(projectBase) }}
+                >
+                  <h4 className="text-xl font-extrabold">{project.name}</h4>
+                  <Image
+                    className="ms-1 pb-1"
+                    src={ExternalLink}
+                    alt="External browser tab icon"
+                    width={24}
+                    height={24}
+                  />
+                </Link>
+              )}
 
-            <p>{t(getDescriptionTranslationKey(props.company, index))}</p>
-            <Breadcrumbs itemsList={project.skills} />
-          </div>
-        ))}
+              <p
+                className="fade-animation"
+                style={{ animationDelay: getAnimationDelay(projectBase + 1) }}
+              >
+                {t(getDescriptionTranslationKey(props.company, projectIndex))}
+              </p>
+              <div
+                className="fade-animation"
+                style={{ animationDelay: getAnimationDelay(projectBase + 2) }}
+              >
+                <Breadcrumbs itemsList={project.skills} />
+              </div>
+            </div>
+          );
+        })}
       </div>
     </div>
   );

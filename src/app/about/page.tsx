@@ -8,7 +8,7 @@ const Page = () => {
   const t = useTranslations("About");
 
   return (
-    <section className="mt-4 min-h-96 pl-0 md:pl-4">
+    <section className="mt-4 min-h-96 pl-0">
       <p className="fade-animation">{t("during_my_computer_science")}</p>
       <br />
       <p

@@ -92,17 +92,17 @@ export default function AsciiWater() {
     function onClick(e: MouseEvent) {
       drop(e.clientX / CW, e.clientY / CHAR_H, 2, CLICK_FORCE);
     }
-    window.addEventListener("mousemove", onMouseMove);
+    // window.addEventListener("mousemove", onMouseMove);
     window.addEventListener("click", onClick);
 
-    const rainTimer = setInterval(() => {
-      drop(
-        Math.random() * (cols - 2) + 1,
-        Math.random() * (rows - 2) + 1,
-        Math.floor(Math.random() * 2) + 1,
-        Math.random() * 60 + 20
-      );
-    }, RAIN_INTERVAL);
+    // const rainTimer = setInterval(() => {
+    //   drop(
+    //     Math.random() * (cols - 2) + 1,
+    //     Math.random() * (rows - 2) + 1,
+    //     Math.floor(Math.random() * 2) + 1,
+    //     Math.random() * 60 + 20
+    //   );
+    // }, RAIN_INTERVAL);
 
     function onResize() {
       cols = Math.ceil(window.innerWidth / CW);
@@ -121,8 +121,8 @@ export default function AsciiWater() {
 
     return () => {
       cancelAnimationFrame(rafId);
-      clearInterval(rainTimer);
-      window.removeEventListener("mousemove", onMouseMove);
+      // clearInterval(rainTimer);
+      // window.removeEventListener("mousemove", onMouseMove);
       window.removeEventListener("click", onClick);
       window.removeEventListener("resize", onResize);
       document.removeEventListener("visibilitychange", onVisibility);

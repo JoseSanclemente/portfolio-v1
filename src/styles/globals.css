@@ -13,6 +13,7 @@
 }
 
 :root {
+  font-size: 1.125rem;
   --red: #e61717;
   --green: #bfd732;
   --purple: #7749ff;
@@ -59,10 +60,13 @@
 .gradient--border-show {
   border: solid 1px transparent;
   background-image:
-    linear-gradient(var(--grayDark), var(--grayDark)), var(--gradient);
+    linear-gradient(var(--grayDark), var(--grayDark)),
+    linear-gradient(to right, #40e0d0, #ff8c00, #ff0080, #40e0d0);
   background-origin: border-box;
   background-clip: padding-box, border-box;
+  background-size: 200% auto;
   color: var(--grayLight);
+  animation: gradient-flow 4s linear infinite;
 }
 
 .gradient--border:hover {
@@ -104,8 +108,8 @@
 .timeline-event::before {
   position: relative;
   display: inline-block;
-  left: -2rem;
-  top: 2rem;
+  left: -1.9rem;
+  top: 1.5rem;
   content: "";
   width: 15px;
   height: 15px;

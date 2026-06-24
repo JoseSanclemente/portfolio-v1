@@ -39,6 +39,20 @@
   }
 }
 
+.page-fade-in {
+  opacity: 0;
+  animation: page-fade-in 300ms ease-out forwards;
+}
+
+@keyframes page-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 @keyframes gradient-flow {
   from {
     background-position: 0% center;

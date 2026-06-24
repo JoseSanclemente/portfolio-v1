@@ -2,8 +2,8 @@ import { ExperienceProperties } from "@/src/types/Experience";
 import { TailwindThemeColors } from "@/src/theme";
 
 export const TabsInfo = [
-  { title: "Experience", path: "/experience" },
   { title: "About", path: "/about" },
+  { title: "Experience", path: "/experience" },
 ];
 
 export const ExperienceInfo: ExperienceProperties[] = [
