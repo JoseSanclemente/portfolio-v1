@@ -23,7 +23,7 @@ export default function LocaleDropdown() {
       onClick={handleToggle}
       disabled={isPending}
       aria-label="Language"
-      className="w-10 rounded-md bg-transparent p-1 text-center text-white transition-colors hover:bg-slate-700 disabled:opacity-50"
+      className="w-10 cursor-pointer rounded-md bg-transparent p-1 text-center text-white disabled:opacity-50"
     >
       {locale.toUpperCase() || "EN"}
     </button>
