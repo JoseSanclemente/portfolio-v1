@@ -1,4 +1,5 @@
 import { getTranslations } from "next-intl/server";
+import WaveText from "@/src/components/ui/wave-text";
 
 export default async function Header() {
   const t = await getTranslations("Layout");
@@ -12,7 +13,7 @@ export default async function Header() {
       </h1>
       <h2 className="mb-6 text-xl leading-7 font-bold lg:text-2xl">
         {t("frontend_developer")} &<br />
-        <span className="gradient">{t("passionated_about_people")}</span>
+        <WaveText text={t("passionated_about_people")} />
       </h2>
       <p>{t("bringing_tech_products")}</p>
     </header>

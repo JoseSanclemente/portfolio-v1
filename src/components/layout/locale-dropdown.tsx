@@ -1,8 +1,6 @@
 import { getUserLocale, setUserLocale } from "@/src/services/locale";
 import { Locale } from "@/src/types/Locale";
-import { ChangeEvent, useEffect, useState, useTransition } from "react";
-
-const allowedLocales = ["ES", "EN"];
+import { useEffect, useState, useTransition } from "react";
 
 export default function LocaleDropdown() {
   const [isPending, startTransition] = useTransition();
@@ -12,29 +10,22 @@ export default function LocaleDropdown() {
     getUserLocale().then((userLocale) => setLocale(userLocale));
   }, []);
 
-  const handleSelection = (e: ChangeEvent<HTMLSelectElement>) => {
-    const userLocale = e.target.value;
-    const locale = userLocale as Locale;
-
+  const handleToggle = () => {
+    const next = locale === "en" ? "es" : "en";
     startTransition(() => {
-      setLocale(userLocale);
-      setUserLocale(locale);
+      setLocale(next);
+      setUserLocale(next as Locale);
     });
   };
 
   return (
-    <select
-      value={locale}
-      onChange={handleSelection}
-      name="locale"
-      className="rounded-md bg-transparent p-1 text-white transition-colors hover:bg-slate-700"
+    <button
+      onClick={handleToggle}
+      disabled={isPending}
       aria-label="Language"
+      className="w-10 rounded-md bg-transparent p-1 text-center text-white transition-colors hover:bg-slate-700 disabled:opacity-50"
     >
-      {allowedLocales.map((item) => (
-        <option key={item} className="bg-slate-800" value={item.toLowerCase()}>
-          {item}
-        </option>
-      ))}
-    </select>
+      {locale.toUpperCase() || "EN"}
+    </button>
   );
 }
