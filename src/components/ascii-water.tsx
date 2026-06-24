@@ -20,8 +20,12 @@ export default function AsciiWater() {
     probe.style.cssText = "position:absolute;visibility:hidden;font-family:monospace;font-size:12px;line-height:14px;white-space:pre";
     probe.textContent = "x";
     document.body.appendChild(probe);
-    const CW = probe.getBoundingClientRect().width || CHAR_W;
-    document.body.removeChild(probe);
+    let CW: number;
+    try {
+      CW = probe.getBoundingClientRect().width || CHAR_W;
+    } finally {
+      document.body.removeChild(probe);
+    }
 
     let cols = Math.ceil(window.innerWidth / CW);
     let rows = Math.ceil(window.innerHeight / CHAR_H);
@@ -48,13 +52,13 @@ export default function AsciiWater() {
       rafId = requestAnimationFrame(loop);
       if (!el) return;
 
-      let frame = "";
+      const frameChars: string[] = [];
       for (let y = 0; y < rows; y++) {
         for (let x = 0; x < cols; x++) {
           const i = x + y * cols;
           if (x === 0 || x === cols - 1 || y === 0 || y === rows - 1) {
             buf2[i] = 0;
-            frame += CHARS[0];
+            frameChars.push(CHARS[0]);
           } else {
             buf2[i] =
               (buf1[i - 1] + buf1[i + 1] + buf1[i - cols] + buf1[i + cols]) /
@@ -66,12 +70,12 @@ export default function AsciiWater() {
             const ySlope = buf2[i - cols] - buf2[i + cols];
             const slope = Math.abs(xSlope) + Math.abs(ySlope);
             const val = Math.min(CHARS.length - 1, Math.floor(slope / 8));
-            frame += CHARS[val];
+            frameChars.push(CHARS[val]);
           }
         }
-        frame += "\n";
+        frameChars.push("\n");
       }
-      el.textContent = frame;
+      el.textContent = frameChars.join("");
 
       const tmp = buf1;
       buf1 = buf2;
@@ -111,15 +115,20 @@ export default function AsciiWater() {
       buf2 = new Float32Array(cols * rows);
     }
 
+    let mounted = true;
     function onVisibility() {
-      if (document.hidden) cancelAnimationFrame(rafId);
-      else rafId = requestAnimationFrame(loop);
+      if (document.hidden) {
+        if (rafId) cancelAnimationFrame(rafId);
+      } else if (mounted) {
+        rafId = requestAnimationFrame(loop);
+      }
     }
 
     window.addEventListener("resize", onResize);
     document.addEventListener("visibilitychange", onVisibility);
 
     return () => {
+      mounted = false;
       cancelAnimationFrame(rafId);
       // clearInterval(rainTimer);
       // window.removeEventListener("mousemove", onMouseMove);

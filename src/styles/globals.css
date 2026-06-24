@@ -20,6 +20,7 @@
   --grayDark: #1c1c1e;
   --grayLight: #f2f2f7;
   --gradient: linear-gradient(to right, #40e0d0, #ff8c00, #ff0080);
+  --gradient-loop: linear-gradient(to right, #40e0d0, #ff8c00, #ff0080, #40e0d0);
   --timelineGradient: linear-gradient(
     0deg,
     var(--grayDark),
@@ -38,13 +39,14 @@
 }
 
 .gradient {
-  background: linear-gradient(to right, #40e0d0, #ff8c00, #ff0080, #40e0d0);
+  background: var(--gradient-loop);
   background-size: 200% auto;
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   position: relative;
   animation: gradient-flow 4s linear infinite;
+  will-change: background-position;
 }
 
 .gradient--underline::after {
@@ -61,12 +63,13 @@
   border: solid 1px transparent;
   background-image:
     linear-gradient(var(--grayDark), var(--grayDark)),
-    linear-gradient(to right, #40e0d0, #ff8c00, #ff0080, #40e0d0);
+    var(--gradient-loop);
   background-origin: border-box;
   background-clip: padding-box, border-box;
   background-size: 200% auto;
   color: var(--grayLight);
   animation: gradient-flow 4s linear infinite;
+  will-change: background-position;
 }
 
 .gradient--border:hover {
@@ -103,13 +106,12 @@
   transform: scaleY(0);
   transform-origin: top;
   animation: timeline-grow 16s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: transform;
 }
 
 .timeline-event::before {
   position: relative;
   display: inline-block;
-  left: -1.9rem;
-  top: 1.5rem;
   content: "";
   width: 15px;
   height: 15px;
@@ -117,8 +119,17 @@
   border: 1px solid var(--grayLight);
   border-radius: 50%;
   z-index: 0;
+  transform: translate(-1.9rem, 1.5rem);
 }
 
 .timeline-event:first-child::before {
   background-color: var(--grayLight);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .timeline::before {
+    animation: none;
+    transform: scaleY(1);
+    will-change: auto;
+  }
 }

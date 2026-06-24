@@ -1,8 +1,15 @@
 // i18
 import { useTranslations } from "next-intl";
 import Image from "next/image";
+import { type Metadata } from "next";
 import truoraPaper from "@/public/truora_paper.webp";
 import { getAnimationDelay } from "@/src/utils/animation";
+
+export const metadata: Metadata = {
+  title: "About | Jose Sanclemente",
+  description:
+    "Learn about Jose Sanclemente — senior frontend engineer with a background in web development, startups, and building products that scale.",
+};
 
 const Page = () => {
   const t = useTranslations("About");

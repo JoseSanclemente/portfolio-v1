@@ -2,7 +2,7 @@
 // Next
 import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
-import { useRef, useLayoutEffect } from "react";
+import { useRef, useLayoutEffect, useMemo, useCallback } from "react";
 
 // Types
 import { TabsProperties } from "@/src/types/Tabs";
@@ -23,11 +23,21 @@ const Tabs = ({ children }: TabsProperties) => {
   const router = useRouter();
   const t = useTranslations();
 
-  const sortedTabs = [...TabsInfo].sort((a, b) =>
-    a.path === currentPath ? 1 : b.path === currentPath ? -1 : 0,
+  const sortedTabs = useMemo(
+    () =>
+      [...TabsInfo].sort((a, b) =>
+        a.path === currentPath ? 1 : b.path === currentPath ? -1 : 0,
+      ),
+    [currentPath],
   );
 
   const linkRefs = useRef<Map<string, HTMLAnchorElement | null>>(new Map());
+  const setLinkRef = useCallback(
+    (path: string) => (el: HTMLAnchorElement | null) => {
+      linkRefs.current.set(path, el);
+    },
+    [],
+  );
   const prevRectsRef = useRef<Map<string, DOMRect>>(new Map());
   const prevPathRef = useRef<string | null>(null);
 
@@ -81,7 +91,7 @@ const Tabs = ({ children }: TabsProperties) => {
     }
 
     prevPathRef.current = currentPath;
-  });
+  }, [currentPath]);
 
   const handleClick = (e: React.MouseEvent, tabPath: string) => {
     if (tabPath === currentPath) return;
@@ -102,11 +112,9 @@ const Tabs = ({ children }: TabsProperties) => {
             <Link
               key={tab.path}
               href={tab.path}
-              ref={(el) => {
-                linkRefs.current.set(tab.path, el);
-              }}
+              ref={setLinkRef(tab.path)}
               onClick={(e) => handleClick(e, tab.path)}
-              className={`font-[family-name:var(--font-boldonse)] hover:text-gray-light ${tab.path === currentPath ? "text-4xl text-gray-light" : "text-lg"}`}
+              className={`font-[family-name:var(--font-boldonse)] hover:text-gray-light ${tab.path === currentPath ? "text-4xl text-gray-light" : "text-lg opacity-50"}`}
             >
               {t(`Titles.${tab.title}`)}
             </Link>

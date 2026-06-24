@@ -1,6 +1,7 @@
 "use client";
 
 // Next
+import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -67,27 +68,31 @@ const JobExperience = (props: ExperienceProperties) => {
       </p>
 
       <div className="flex flex-col gap-y-10">
-        {props.projects.map((project, projectIndex) => {
+        {props.projects?.map((project, projectIndex) => {
           const projectBase = BASE_DELAY + 2 + projectIndex * 3;
           return (
-            <div key={project.url}>
+            <div key={`${props.company}-${projectIndex}`}>
               {project.name && (
-                <Link
-                  href={project.url}
-                  className="bounce-animation fade-animation mb-1 flex text-slate-200"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <div
+                  className="fade-animation"
                   style={{ animationDelay: getAnimationDelay(projectBase) }}
                 >
-                  <h4 className="text-xl font-extrabold">{project.name}</h4>
-                  <Image
-                    className="ms-1 pb-1"
-                    src={ExternalLink}
-                    alt="External browser tab icon"
-                    width={24}
-                    height={24}
-                  />
-                </Link>
+                  <Link
+                    href={project.url}
+                    className="bounce-animation mb-1 flex text-slate-200"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <h4 className="text-xl font-extrabold">{project.name}</h4>
+                    <Image
+                      className="ms-1 pb-1"
+                      src={ExternalLink}
+                      alt="External browser tab icon"
+                      width={24}
+                      height={24}
+                    />
+                  </Link>
+                </div>
               )}
 
               <p
@@ -110,4 +115,4 @@ const JobExperience = (props: ExperienceProperties) => {
   );
 };
 
-export default JobExperience;
+export default React.memo(JobExperience);

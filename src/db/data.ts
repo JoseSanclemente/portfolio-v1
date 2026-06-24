@@ -12,7 +12,7 @@ export const ExperienceInfo: ExperienceProperties[] = [
     company: "Perficient",
     companyURL: "https://www.perficient.com/",
     color: TailwindThemeColors.Red,
-    from: new Date(2022, 8),
+    from: new Date(2022, 8), // September 2022
     to: "Present",
     projects: [
       {
@@ -22,7 +22,7 @@ export const ExperienceInfo: ExperienceProperties[] = [
       },
       {
         name: "DFIN",
-        skills: ["React.js", "TypeScript", "HTML", "CSS", "LauchDarkly"],
+        skills: ["React.js", "TypeScript", "HTML", "CSS", "LaunchDarkly"],
         url: "https://www.dfinsolutions.com/",
       },
     ],
@@ -32,8 +32,8 @@ export const ExperienceInfo: ExperienceProperties[] = [
     company: "Globant",
     companyURL: "https://www.globant.com/",
     color: TailwindThemeColors.Green,
-    from: new Date(2021, 5),
-    to: new Date(2022, 8),
+    from: new Date(2021, 5), // June 2021
+    to: new Date(2022, 8), // September 2022
     projects: [
       {
         name: "Pvolve",
@@ -56,8 +56,8 @@ export const ExperienceInfo: ExperienceProperties[] = [
     company: "Truora",
     companyURL: "https://www.truora.com/en/",
     color: TailwindThemeColors.Purple,
-    from: new Date(2018, 6),
-    to: new Date(2021, 5),
+    from: new Date(2018, 6), // July 2018
+    to: new Date(2021, 5), // June 2021
     projects: [
       {
         name: "",
