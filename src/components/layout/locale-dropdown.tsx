@@ -27,7 +27,7 @@ export default function LocaleDropdown() {
       value={locale}
       onChange={handleSelection}
       name="locale"
-      className="rounded-md bg-transparent p-1 transition-colors hover:bg-slate-700"
+      className="rounded-md bg-transparent p-1 text-white transition-colors hover:bg-slate-700"
       aria-label="Language"
     >
       {allowedLocales.map((item) => (
