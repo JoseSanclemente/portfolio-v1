@@ -42,7 +42,7 @@ const JobExperience = (props: ExperienceProperties) => {
   const BASE_DELAY = 2;
 
   return (
-    <div className={`timeline-event pl-6`}>
+    <div className={`timeline-event pl-6 w-full min-w-0`}>
       <h3
         className="fade-animation mb-2 text-2xl font-extrabold text-slate-200 transition-colors duration-200"
         style={{ animationDelay: getAnimationDelay(BASE_DELAY) }}

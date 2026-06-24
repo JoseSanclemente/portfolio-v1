@@ -67,13 +67,13 @@ export default async function RootLayout({
 
         <NextIntlClientProvider messages={messages}>
           <div className="mx-auto flex min-h-screen max-w-screen-xl flex-col gap-x-14 px-6 py-12 md:px-12 md:py-20 lg:flex-row lg:py-0 xl:px-0">
-            <div className="top-0 flex max-h-screen w-100 flex-col justify-between gap-y-8 lg:sticky lg:w-1/2 lg:py-24">
+            <div className="top-0 flex max-h-screen w-full flex-col justify-between gap-y-8 lg:sticky lg:w-1/2 lg:py-24">
               <Header />
 
               <SocialMedia />
             </div>
 
-            <main className="w-100 lg:w-1/2 lg:py-24">
+            <main className="w-full lg:w-1/2 lg:py-24">
               <Tabs>{children}</Tabs>
             </main>
           </div>

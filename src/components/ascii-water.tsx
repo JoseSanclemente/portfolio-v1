@@ -27,22 +27,24 @@ export default function AsciiWater() {
       document.body.removeChild(probe);
     }
 
-    let cols = Math.ceil(window.innerWidth / CW);
-    let rows = Math.ceil(window.innerHeight / CHAR_H);
-    let buf1 = new Float32Array(cols * rows);
-    let buf2 = new Float32Array(cols * rows);
+    let visCols = Math.ceil(window.innerWidth / CW);
+    let visRows = Math.ceil(window.innerHeight / CHAR_H);
+    let bufCols = visCols + 2;
+    let bufRows = visRows + 2;
+    let buf1 = new Float32Array(bufCols * bufRows);
+    let buf2 = new Float32Array(bufCols * bufRows);
     let rafId = 0;
 
     function drop(x: number, y: number, radius: number, force: number) {
-      const xi = Math.floor(x);
-      const yi = Math.floor(y);
+      const xi = Math.floor(x) + 1;
+      const yi = Math.floor(y) + 1;
       for (let dy = -radius; dy <= radius; dy++) {
         for (let dx = -radius; dx <= radius; dx++) {
           if (dx * dx + dy * dy <= radius * radius) {
             const nx = xi + dx;
             const ny = yi + dy;
-            if (nx > 0 && nx < cols - 1 && ny > 0 && ny < rows - 1)
-              buf1[nx + ny * cols] += force;
+            if (nx > 0 && nx < bufCols - 1 && ny > 0 && ny < bufRows - 1)
+              buf1[nx + ny * bufCols] += force;
           }
         }
       }
@@ -53,33 +55,28 @@ export default function AsciiWater() {
       if (!el) return;
 
       const frameChars: string[] = [];
-      for (let y = 0; y < rows; y++) {
-        for (let x = 0; x < cols; x++) {
-          const i = x + y * cols;
-          if (x === 0 || x === cols - 1 || y === 0 || y === rows - 1) {
-            buf2[i] = 0;
-            frameChars.push(CHARS[0]);
-          } else {
-            buf2[i] =
-              (buf1[i - 1] + buf1[i + 1] + buf1[i - cols] + buf1[i + cols]) /
-                2 -
-              buf2[i];
-            buf2[i] *= DAMPING;
+      for (let y = 0; y < visRows; y++) {
+        for (let x = 0; x < visCols; x++) {
+          const bx = x + 1;
+          const by = y + 1;
+          const i = bx + by * bufCols;
+          buf2[i] =
+            (buf1[i - 1] + buf1[i + 1] + buf1[i - bufCols] + buf1[i + bufCols]) /
+              2 -
+            buf2[i];
+          buf2[i] *= DAMPING;
 
-            const xSlope = buf2[i - 1] - buf2[i + 1];
-            const ySlope = buf2[i - cols] - buf2[i + cols];
-            const slope = Math.abs(xSlope) + Math.abs(ySlope);
-            const val = Math.min(CHARS.length - 1, Math.floor(slope / 8));
-            frameChars.push(CHARS[val]);
-          }
+          const xSlope = buf2[i - 1] - buf2[i + 1];
+          const ySlope = buf2[i - bufCols] - buf2[i + bufCols];
+          const slope = Math.abs(xSlope) + Math.abs(ySlope);
+          const val = Math.min(CHARS.length - 1, Math.floor(slope / 8));
+          frameChars.push(CHARS[val]);
         }
         frameChars.push("\n");
       }
       el.textContent = frameChars.join("");
 
-      const tmp = buf1;
-      buf1 = buf2;
-      buf2 = tmp;
+      const tmp = buf1; buf1 = buf2; buf2 = tmp;
 
       const t = performance.now() * 0.001;
       const hue = 210 + Math.sin(t * 0.2) * 8;
@@ -109,10 +106,12 @@ export default function AsciiWater() {
     // }, RAIN_INTERVAL);
 
     function onResize() {
-      cols = Math.ceil(window.innerWidth / CW);
-      rows = Math.ceil(window.innerHeight / CHAR_H);
-      buf1 = new Float32Array(cols * rows);
-      buf2 = new Float32Array(cols * rows);
+      visCols = Math.ceil(window.innerWidth / CW);
+      visRows = Math.ceil(window.innerHeight / CHAR_H);
+      bufCols = visCols + 2;
+      bufRows = visRows + 2;
+      buf1 = new Float32Array(bufCols * bufRows);
+      buf2 = new Float32Array(bufCols * bufRows);
     }
 
     let mounted = true;
